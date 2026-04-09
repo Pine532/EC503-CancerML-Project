@@ -1,119 +1,65 @@
-import pandas as pd
-import numpy as np
+import argparse
 import time
 
-from sklearn.model_selection import train_test_split
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
-from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
-from sklearn.linear_model import LassoCV
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+import numpy as np
 
-# -----------------------------
-# Load data
-# -----------------------------
-df = pd.read_csv("GDSC_DATASET.csv")
-
-target_col = "LN_IC50"
-
-feature_cols = [
-    "TCGA_DESC",
-    "GDSC Tissue descriptor 1",
-    "GDSC Tissue descriptor 2",
-    "Cancer Type (matching TCGA label)",
-    "Microsatellite instability Status (MSI)",
-    "Screen Medium",
-    "Growth Properties",
-    "CNA",
-    "Gene Expression",
-    "Methylation",
-    "TARGET",
-    "TARGET_PATHWAY"
-]
-
-model_df = df[feature_cols + [target_col]].copy()
-model_df = model_df.dropna(subset=[target_col])
-
-X = model_df[feature_cols]
-y = model_df[target_col]
-
-# -----------------------------
-# Train/test split
-# -----------------------------
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42
+from cancer_ml_utils import (
+    SPLIT_LABELS,
+    SUPPORTED_SPLITS,
+    build_lasso_pipeline,
+    load_model_dataframe,
+    regression_metrics,
+    split_dataset,
 )
 
-print("X_train shape:", X_train.shape)
-print("X_test shape:", X_test.shape)
 
-# -----------------------------
-# Preprocessing
-# -----------------------------
-categorical_transformer = Pipeline(steps=[
-    ("imputer", SimpleImputer(strategy="most_frequent")),
-    ("onehot", OneHotEncoder(handle_unknown="ignore"))
-])
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Train a Lasso baseline on the GDSC metadata features.")
+    parser.add_argument(
+        "--split",
+        choices=SUPPORTED_SPLITS,
+        default="random",
+        help="Evaluation split to use.",
+    )
+    return parser.parse_args()
 
-preprocessor = ColumnTransformer(
-    transformers=[
-        ("cat", categorical_transformer, feature_cols)
-    ]
-)
 
-# -----------------------------
-# Model pipeline
-# -----------------------------
-lasso_pipeline = Pipeline(steps=[
-    ("preprocessor", preprocessor),
-    ("scaler", StandardScaler(with_mean=False)),
-    ("model", LassoCV(
-        alphas=np.logspace(-4, 0, 10),
-        cv=5,
-        max_iter=10000,
-        random_state=42,
-        n_jobs=-1
-    ))
-])
+def main() -> None:
+    args = parse_args()
+    model_df = load_model_dataframe(include_group_columns=args.split != "random")
+    data_split = split_dataset(model_df, split_strategy=args.split)
 
-# -----------------------------
-# Train
-# -----------------------------
-start_train = time.time()
-lasso_pipeline.fit(X_train, y_train)
-train_time = time.time() - start_train
+    print("Split strategy:", SPLIT_LABELS[args.split])
+    print("X_train shape:", data_split.X_train.shape)
+    print("X_val shape:", data_split.X_val.shape)
+    print("X_test shape:", data_split.X_test.shape)
 
-# -----------------------------
-# Predict
-# -----------------------------
-start_pred = time.time()
-y_pred = lasso_pipeline.predict(X_test)
-pred_time = time.time() - start_pred
+    lasso_pipeline = build_lasso_pipeline()
 
-# -----------------------------
-# Metrics
-# -----------------------------
-rmse = np.sqrt(mean_squared_error(y_test, y_pred))
-mae = mean_absolute_error(y_test, y_pred)
-r2 = r2_score(y_test, y_pred)
+    start_train = time.time()
+    lasso_pipeline.fit(data_split.X_train, data_split.y_train)
+    train_time = time.time() - start_train
 
-best_alpha = lasso_pipeline.named_steps["model"].alpha_
+    start_pred = time.time()
+    y_pred = lasso_pipeline.predict(data_split.X_test)
+    pred_time = time.time() - start_pred
 
-print("\nLASSO Results")
-print("-------------")
-print(f"Best alpha: {best_alpha:.6f}")
-print(f"RMSE: {rmse:.4f}")
-print(f"MAE : {mae:.4f}")
-print(f"R^2 : {r2:.4f}")
-print(f"Training time  : {train_time:.4f} seconds")
-print(f"Inference time : {pred_time:.4f} seconds")
+    metrics = regression_metrics(data_split.y_test, y_pred)
+    best_alpha = lasso_pipeline.named_steps["model"].alpha_
+    coef = lasso_pipeline.named_steps["model"].coef_
+    nonzero = int(np.count_nonzero(coef))
+    total = len(coef)
 
-# -----------------------------
-# Count nonzero coefficients
-# -----------------------------
-coef = lasso_pipeline.named_steps["model"].coef_
-nonzero = np.sum(coef != 0)
-total = len(coef)
+    print("\nLASSO Results")
+    print("-------------")
+    print(f"Best alpha: {best_alpha:.6f}")
+    print(f"RMSE: {metrics['RMSE']:.4f}")
+    print(f"MAE : {metrics['MAE']:.4f}")
+    print(f"R^2 : {metrics['R2']:.4f}")
+    print(f"Training time  : {train_time:.4f} seconds")
+    print(f"Inference time : {pred_time:.4f} seconds")
+    print(f"Nonzero coefficients: {nonzero} / {total}")
 
-print(f"Nonzero coefficients: {nonzero} / {total}")
+
+if __name__ == "__main__":
+    main()
