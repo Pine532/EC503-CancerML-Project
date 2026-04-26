@@ -8,6 +8,7 @@ from cancer_ml_utils import (
     SPLIT_LABELS,
     SUPPORTED_SPLITS,
     build_model_registry,
+    gradient_boosting_backend_name,
     load_model_dataframe,
     regression_metrics,
     split_dataset,
@@ -37,6 +38,7 @@ def main() -> None:
     print("X_train shape:", data_split.X_train.shape)
     print("X_val shape:", data_split.X_val.shape)
     print("X_test shape:", data_split.X_test.shape)
+    print("Gradient Boosting backend:", gradient_boosting_backend_name())
 
     results = []
     trained_models = {}

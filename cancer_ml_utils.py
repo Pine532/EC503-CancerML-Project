@@ -6,13 +6,18 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from sklearn.compose import ColumnTransformer
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import HistGradientBoostingRegressor, RandomForestRegressor
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LassoCV, LinearRegression, Ridge
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import GroupShuffleSplit, train_test_split
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.preprocessing import FunctionTransformer, OneHotEncoder, StandardScaler
+
+try:
+    from xgboost import XGBRegressor
+except ImportError:
+    XGBRegressor = None
 
 PROJECT_DIR = Path(__file__).resolve().parent
 DATA_PATH = PROJECT_DIR / "GDSC_DATASET.csv"
@@ -94,6 +99,17 @@ def build_preprocessor() -> ColumnTransformer:
     )
 
 
+def _to_dense_if_needed(matrix):
+    return matrix.toarray() if hasattr(matrix, "toarray") else matrix
+
+
+def gradient_boosting_backend_name() -> str:
+    if XGBRegressor is not None:
+        return "XGBoost"
+
+    return "sklearn HistGradientBoostingRegressor"
+
+
 def build_linear_pipeline() -> Pipeline:
     return Pipeline(
         steps=[
@@ -148,12 +164,55 @@ def build_random_forest_pipeline() -> Pipeline:
     )
 
 
+def build_gradient_boosting_pipeline() -> Pipeline:
+    steps = [("preprocessor", build_preprocessor())]
+
+    if XGBRegressor is not None:
+        steps.append(
+            (
+                "model",
+                XGBRegressor(
+                    objective="reg:squarederror",
+                    n_estimators=200,
+                    learning_rate=0.05,
+                    max_depth=5,
+                    subsample=0.8,
+                    colsample_bytree=0.8,
+                    tree_method="hist",
+                    random_state=RANDOM_STATE,
+                    n_jobs=-1,
+                ),
+            )
+        )
+        return Pipeline(steps=steps)
+
+    return Pipeline(
+        steps=[
+            *steps,
+            # sklearn's histogram booster expects dense input after one-hot encoding.
+            ("to_dense", FunctionTransformer(_to_dense_if_needed, validate=False)),
+            (
+                "model",
+                HistGradientBoostingRegressor(
+                    learning_rate=0.05,
+                    max_iter=200,
+                    max_depth=5,
+                    max_features=0.8,
+                    early_stopping=False,
+                    random_state=RANDOM_STATE,
+                ),
+            ),
+        ]
+    )
+
+
 def build_model_registry() -> dict[str, Pipeline]:
     return {
         "Linear": build_linear_pipeline(),
         "Ridge": build_ridge_pipeline(),
         "Lasso": build_lasso_pipeline(),
         "Random Forest": build_random_forest_pipeline(),
+        "Gradient Boosting": build_gradient_boosting_pipeline(),
     }
 
 
