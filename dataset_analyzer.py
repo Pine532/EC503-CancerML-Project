@@ -1,38 +1,20 @@
-import pandas as pd
+from cancer_ml_utils import FEATURE_COLS, TARGET_COL, load_model_dataframe
 
-# Load main dataset
-df = pd.read_csv("GDSC_DATASET.csv")
 
-# Target
-target_col = "LN_IC50"
+def main() -> None:
+    model_df = load_model_dataframe()
 
-# First-pass feature set
-feature_cols = [
-    "TCGA_DESC",
-    "GDSC Tissue descriptor 1",
-    "GDSC Tissue descriptor 2",
-    "Cancer Type (matching TCGA label)",
-    "Microsatellite instability Status (MSI)",
-    "Screen Medium",
-    "Growth Properties",
-    "CNA",
-    "Gene Expression",
-    "Methylation",
-    "TARGET",
-    "TARGET_PATHWAY"
-]
+    print("Shape of model_df:", model_df.shape)
+    print("\nMissing values by column:")
+    print(model_df.isnull().sum())
 
-# Build clean working table
-model_df = df[feature_cols + [target_col]].copy()
+    print("\nTarget summary:")
+    print(model_df[TARGET_COL].describe())
 
-# Basic checks
-print("Shape of model_df:", model_df.shape)
-print("\nMissing values by column:")
-print(model_df.isnull().sum())
+    print("\nUnique values per feature:")
+    for col in FEATURE_COLS:
+        print(f"{col}: {model_df[col].nunique(dropna=True)}")
 
-print("\nTarget summary:")
-print(model_df[target_col].describe())
 
-print("\nUnique values per feature:")
-for col in feature_cols:
-    print(f"{col}: {model_df[col].nunique(dropna=True)}")
+if __name__ == "__main__":
+    main()
