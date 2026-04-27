@@ -8,7 +8,9 @@ import numpy as np
 import pandas as pd
 
 from cancer_ml_utils import (
+    DatasetSplit,
     RESULTS_DIR,
+    RANDOM_STATE,
     SPLIT_LABELS,
     SUPPORTED_DATASETS,
     SUPPORTED_FEATURE_SETS,
@@ -55,7 +57,8 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help=(
             "Dataset mode to evaluate. Defaults to gdsc_metadata_only when omitted. "
-            "Use gdsc_metadata_only, gdsc_metadata_plus_expression, or secondary_screen_auc."
+            "Use gdsc_metadata_only, gdsc_metadata_plus_expression, "
+            "secondary_screen_auc, or secondary_screen_ic50."
         ),
     )
     parser.add_argument(
@@ -77,6 +80,20 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Optional subset of models to run.",
     )
+    parser.add_argument(
+        "--max-rows",
+        type=int,
+        default=None,
+        help="Optional row cap sampled before splitting for faster experiments.",
+    )
+    parser.add_argument(
+        "--clip-target-quantiles",
+        nargs=2,
+        type=float,
+        metavar=("LOW", "HIGH"),
+        default=None,
+        help="Clip target values using train-set quantile thresholds, e.g. 0.01 0.99.",
+    )
     return parser.parse_args()
 
 
@@ -92,56 +109,153 @@ def get_selected_models(
 
 
 def build_results_path(
-    dataset_name: str,
+    dataset_mode: str,
     split_key: str,
     feature_set: str | None,
     selected_model_names: list[str],
     all_model_names: list[str],
+    max_rows: int | None = None,
+    clip_quantiles: tuple[float, float] | None = None,
 ) -> Path:
-    file_stem = f"model_comparison_{dataset_name}_{split_key}"
+    file_stem = f"model_comparison_{dataset_mode}_{split_key}"
 
-    if feature_set is not None:
+    if feature_set is not None and not dataset_mode.endswith(feature_set):
         file_stem = f"{file_stem}_{feature_set}"
 
     if selected_model_names != all_model_names:
         model_slug = "-".join(name.lower().replace(" ", "_") for name in selected_model_names)
         file_stem = f"{file_stem}_{model_slug}"
 
+    if max_rows is not None:
+        file_stem = f"{file_stem}_maxrows{max_rows}"
+
+    if clip_quantiles is not None:
+        low, high = clip_quantiles
+        file_stem = f"{file_stem}_clipped_{low:g}_{high:g}"
+
     return RESULTS_DIR / f"{file_stem}.csv"
+
+
+def cap_rows(model_df: pd.DataFrame, max_rows: int | None) -> pd.DataFrame:
+    if max_rows is None or len(model_df) <= max_rows:
+        return model_df
+
+    return model_df.sample(n=max_rows, random_state=RANDOM_STATE).reset_index(drop=True)
+
+
+def validate_clip_quantiles(clip_quantiles: list[float] | None) -> tuple[float, float] | None:
+    if clip_quantiles is None:
+        return None
+
+    low, high = clip_quantiles
+    if not 0 <= low < high <= 1:
+        raise ValueError("--clip-target-quantiles requires 0 <= LOW < HIGH <= 1.")
+
+    return low, high
+
+
+def clip_split_targets(
+    data_split: DatasetSplit,
+    clip_quantiles: tuple[float, float] | None,
+) -> tuple[DatasetSplit, dict[str, float | str]]:
+    if clip_quantiles is None:
+        return data_split, {
+            "Target Clipping": "none",
+            "Clip Low Quantile": np.nan,
+            "Clip High Quantile": np.nan,
+            "Clip Low Value": np.nan,
+            "Clip High Value": np.nan,
+        }
+
+    low_quantile, high_quantile = clip_quantiles
+    low_value = float(data_split.y_train.quantile(low_quantile))
+    high_value = float(data_split.y_train.quantile(high_quantile))
+
+    # Thresholds are learned from y_train only, then applied to all target splits.
+    clipped_split = DatasetSplit(
+        X_train=data_split.X_train,
+        X_val=data_split.X_val,
+        X_test=data_split.X_test,
+        y_train=data_split.y_train.clip(lower=low_value, upper=high_value),
+        y_val=data_split.y_val.clip(lower=low_value, upper=high_value),
+        y_test=data_split.y_test.clip(lower=low_value, upper=high_value),
+    )
+
+    return clipped_split, {
+        "Target Clipping": f"quantile_{low_quantile:g}_{high_quantile:g}",
+        "Clip Low Quantile": low_quantile,
+        "Clip High Quantile": high_quantile,
+        "Clip Low Value": low_value,
+        "Clip High Value": high_value,
+    }
 
 
 def main() -> None:
     args = parse_args()
     dataset_mode = resolve_dataset_mode(dataset=args.dataset, feature_set=args.feature_set)
+    clip_quantiles = validate_clip_quantiles(args.clip_target_quantiles)
 
     model_data = load_model_dataframe(
         dataset=dataset_mode,
         include_group_columns=args.split != "random",
     )
+    model_df = cap_rows(model_data.model_df, args.max_rows)
     data_split = split_dataset(
-        model_data.model_df,
+        model_df,
         feature_columns=model_data.feature_columns,
         target_col=model_data.target_col,
         group_split_columns=model_data.group_split_columns,
         split_strategy=args.split,
     )
+    data_split, clipping_metadata = clip_split_targets(data_split, clip_quantiles)
 
     all_models = build_model_registry(
         categorical_cols=model_data.categorical_cols,
         numerical_cols=model_data.numerical_cols,
     )
     models = get_selected_models(all_models, args.models)
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    results_path = build_results_path(
+        dataset_mode=model_data.dataset_mode,
+        split_key=args.split,
+        feature_set=model_data.feature_set,
+        selected_model_names=list(models),
+        all_model_names=list(all_models),
+        max_rows=args.max_rows,
+        clip_quantiles=clip_quantiles,
+    )
 
     print("Dataset:", model_data.dataset_name)
     print("Dataset mode:", model_data.dataset_mode)
     print("Target:", model_data.target_col)
     print("Split strategy:", SPLIT_LABELS[args.split], f"({args.split})")
-    print("Dataset shape:", model_data.model_df.shape)
-    print("Target summary:")
-    print(model_data.model_df[model_data.target_col].describe().to_string())
+    print("Raw dataset shape:", model_data.raw_shape)
+    print("Rows after filtering target:", len(model_data.model_df))
+    if args.max_rows is not None:
+        print("Original rows:", len(model_data.model_df))
+        print("Rows after max_rows sampling:", len(model_df))
+    print("Modeling dataset shape:", model_df.shape)
+    print("Target summary before clipping:")
+    print(model_df[model_data.target_col].describe().to_string())
+    if clip_quantiles is not None:
+        print("Target clipping:", clipping_metadata["Target Clipping"])
+        print(
+            "Clip values:",
+            f"{clipping_metadata['Clip Low Value']:.6g}",
+            "to",
+            f"{clipping_metadata['Clip High Value']:.6g}",
+        )
+        clipped_target = pd.concat(
+            [data_split.y_train, data_split.y_val, data_split.y_test],
+            ignore_index=True,
+        )
+        print("Target summary after clipping:")
+        print(clipped_target.describe().to_string())
     print("Categorical feature count:", len(model_data.categorical_cols))
     print("Categorical features:", ", ".join(model_data.categorical_cols))
     print("Numerical feature count:", len(model_data.numerical_cols))
+    if model_data.numerical_cols:
+        print("Numerical features preview:", ", ".join(model_data.numerical_cols[:10]))
     if model_data.feature_set is not None:
         print("Feature set:", model_data.feature_set)
     print("X_train shape:", data_split.X_train.shape)
@@ -154,6 +268,7 @@ def main() -> None:
         print("Gradient Boosting fallback reason:", backend_detail)
 
     print("Models:", ", ".join(models))
+    print("Results path:", results_path)
 
     results = []
     trained_models = {}
@@ -183,6 +298,8 @@ def main() -> None:
             "Split": args.split,
             "Feature Set": "" if model_data.feature_set is None else model_data.feature_set,
             "Model": model_name,
+            "Max Rows": "" if args.max_rows is None else args.max_rows,
+            **clipping_metadata,
             "RMSE": metrics["RMSE"],
             "MAE": metrics["MAE"],
             "R2": metrics["R2"],
@@ -204,6 +321,11 @@ def main() -> None:
         results.append(result)
         trained_models[model_name] = model
 
+        pd.DataFrame(results).sort_values(
+            by=["RMSE", "MAE", "R2"],
+            ascending=[True, True, False],
+        ).reset_index(drop=True).to_csv(results_path, index=False)
+
     results_df = pd.DataFrame(results).sort_values(
         by=["RMSE", "MAE", "R2"],
         ascending=[True, True, False],
@@ -214,14 +336,6 @@ def main() -> None:
     test_pred = best_model.predict(data_split.X_test)
     test_metrics = regression_metrics(data_split.y_test, test_pred)
 
-    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    results_path = build_results_path(
-        dataset_name=model_data.dataset_name,
-        split_key=args.split,
-        feature_set=model_data.feature_set,
-        selected_model_names=list(models),
-        all_model_names=list(all_models),
-    )
     results_df.to_csv(results_path, index=False)
 
     print("\nValidation Results")

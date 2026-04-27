@@ -27,21 +27,23 @@ except Exception as exc:  # pragma: no cover - environment-dependent import path
 PROJECT_DIR = Path(__file__).resolve().parent
 GDSC_METADATA_DATA_PATH = PROJECT_DIR / "GDSC_DATASET.csv"
 GDSC_EXPRESSION_DATA_PATH = PROJECT_DIR / "data" / "model_ready" / "gdsc_metadata_expression_top500.parquet"
-SECONDARY_SCREEN_DATA_PATH = PROJECT_DIR / "data" / "secondary_screen" / "secondary_screen_auc_clean.parquet"
+SECONDARY_SCREEN_AUC_DATA_PATH = PROJECT_DIR / "data" / "secondary_screen" / "secondary_screen_auc_clean.parquet"
+SECONDARY_SCREEN_IC50_DATA_PATH = PROJECT_DIR / "data" / "secondary_screen" / "secondary_screen_ic50_clean.parquet"
 RESULTS_DIR = PROJECT_DIR / "results"
 
 GDSC_DATASET_NAME = "gdsc"
-SECONDARY_SCREEN_DATASET_NAME = "secondary_screen_auc"
 
 SUPPORTED_DATASETS = (
     "gdsc_metadata_only",
     "gdsc_metadata_plus_expression",
     "secondary_screen_auc",
+    "secondary_screen_ic50",
 )
 DATASET_LABELS = {
     "gdsc_metadata_only": "GDSC metadata only",
     "gdsc_metadata_plus_expression": "GDSC metadata plus expression",
     "secondary_screen_auc": "Secondary screen AUC",
+    "secondary_screen_ic50": "Secondary screen log IC50",
 }
 SUPPORTED_FEATURE_SETS = ("metadata_only", "metadata_plus_expression")
 FEATURE_SET_LABELS = {
@@ -81,7 +83,8 @@ GDSC_GROUP_SPLIT_COLUMNS = {
     "cell_line": "COSMIC_ID",
 }
 
-SECONDARY_SCREEN_TARGET_COL = "target_auc"
+SECONDARY_SCREEN_AUC_TARGET_COL = "target_auc"
+SECONDARY_SCREEN_IC50_TARGET_COL = "target_log_ic50"
 SECONDARY_SCREEN_CATEGORICAL_FEATURE_COLS = [
     "ccle_tissue",
     "screen_id",
@@ -102,6 +105,8 @@ SECONDARY_SCREEN_LEAKAGE_COLS = (
     "ic50",
     "log_ic50",
     "log_ec50",
+    SECONDARY_SCREEN_AUC_TARGET_COL,
+    SECONDARY_SCREEN_IC50_TARGET_COL,
 )
 SECONDARY_SCREEN_IDENTIFIER_COLS = (
     "broad_id",
@@ -128,6 +133,7 @@ class ModelingDataset:
     target_col: str
     feature_set: str | None
     group_split_columns: dict[str, str]
+    raw_shape: tuple[int, int]
     model_df: pd.DataFrame
     categorical_cols: list[str]
     numerical_cols: list[str]
@@ -179,8 +185,8 @@ def resolve_dataset_mode(
     if feature_set is None:
         return dataset
 
-    if dataset == "secondary_screen_auc":
-        raise ValueError("--feature-set cannot be used with --dataset secondary_screen_auc.")
+    if dataset.startswith("secondary_screen_"):
+        raise ValueError(f"--feature-set cannot be used with --dataset {dataset}.")
 
     expected_dataset = LEGACY_FEATURE_SET_TO_DATASET[feature_set]
     if dataset != expected_dataset:
@@ -202,14 +208,16 @@ def dataset_name_for_dataset_mode(dataset_mode: str) -> str:
     _validate_dataset_mode(dataset_mode)
     if dataset_mode.startswith("gdsc_"):
         return GDSC_DATASET_NAME
-    return SECONDARY_SCREEN_DATASET_NAME
+    return dataset_mode
 
 
 def target_col_for_dataset_mode(dataset_mode: str) -> str:
     _validate_dataset_mode(dataset_mode)
     if dataset_mode.startswith("gdsc_"):
         return GDSC_TARGET_COL
-    return SECONDARY_SCREEN_TARGET_COL
+    if dataset_mode == "secondary_screen_auc":
+        return SECONDARY_SCREEN_AUC_TARGET_COL
+    return SECONDARY_SCREEN_IC50_TARGET_COL
 
 
 def group_split_columns_for_dataset_mode(dataset_mode: str) -> dict[str, str]:
@@ -217,6 +225,48 @@ def group_split_columns_for_dataset_mode(dataset_mode: str) -> dict[str, str]:
     if dataset_mode.startswith("gdsc_"):
         return GDSC_GROUP_SPLIT_COLUMNS
     return SECONDARY_SCREEN_GROUP_SPLIT_COLUMNS
+
+
+def build_secondary_screen_ic50_dataframe(df: pd.DataFrame) -> pd.DataFrame:
+    ic50_df = df.copy()
+
+    if SECONDARY_SCREEN_IC50_TARGET_COL not in ic50_df.columns:
+        if "ic50" in ic50_df.columns:
+            ic50_values = pd.to_numeric(ic50_df["ic50"], errors="coerce")
+            valid_ic50 = ic50_values.gt(0) & np.isfinite(ic50_values)
+            ic50_df = ic50_df.loc[valid_ic50].copy()
+            ic50_df[SECONDARY_SCREEN_IC50_TARGET_COL] = np.log10(ic50_values.loc[valid_ic50])
+        elif "log_ic50" in ic50_df.columns:
+            ic50_df[SECONDARY_SCREEN_IC50_TARGET_COL] = pd.to_numeric(
+                ic50_df["log_ic50"],
+                errors="coerce",
+            )
+        else:
+            raise ValueError(
+                "secondary_screen_ic50 requires one of: target_log_ic50, ic50, or log_ic50."
+            )
+
+    ic50_df[SECONDARY_SCREEN_IC50_TARGET_COL] = pd.to_numeric(
+        ic50_df[SECONDARY_SCREEN_IC50_TARGET_COL],
+        errors="coerce",
+    )
+    ic50_df = ic50_df[np.isfinite(ic50_df[SECONDARY_SCREEN_IC50_TARGET_COL])].copy()
+
+    return ic50_df
+
+
+def load_secondary_screen_ic50_dataset() -> pd.DataFrame:
+    if SECONDARY_SCREEN_IC50_DATA_PATH.exists():
+        return pd.read_parquet(SECONDARY_SCREEN_IC50_DATA_PATH)
+
+    if not SECONDARY_SCREEN_AUC_DATA_PATH.exists():
+        raise FileNotFoundError(f"Missing Parquet dataset: {SECONDARY_SCREEN_AUC_DATA_PATH}")
+
+    df = pd.read_parquet(SECONDARY_SCREEN_AUC_DATA_PATH)
+    ic50_df = build_secondary_screen_ic50_dataframe(df)
+    SECONDARY_SCREEN_IC50_DATA_PATH.parent.mkdir(parents=True, exist_ok=True)
+    ic50_df.to_parquet(SECONDARY_SCREEN_IC50_DATA_PATH, index=False, compression="snappy")
+    return ic50_df
 
 
 def load_dataset(
@@ -228,11 +278,18 @@ def load_dataset(
     if dataset_mode == "gdsc_metadata_only":
         return dataset_mode, pd.read_csv(GDSC_METADATA_DATA_PATH)
 
-    parquet_path = (
-        GDSC_EXPRESSION_DATA_PATH
-        if dataset_mode == "gdsc_metadata_plus_expression"
-        else SECONDARY_SCREEN_DATA_PATH
-    )
+    if dataset_mode == "secondary_screen_ic50":
+        try:
+            return dataset_mode, load_secondary_screen_ic50_dataset()
+        except ImportError as exc:
+            raise ImportError(
+                "Parquet support requires 'pyarrow' or 'fastparquet'. "
+                "Install 'pyarrow' in the environment used for this project."
+            ) from exc
+
+    parquet_path = GDSC_EXPRESSION_DATA_PATH
+    if dataset_mode == "secondary_screen_auc":
+        parquet_path = SECONDARY_SCREEN_AUC_DATA_PATH
 
     if not parquet_path.exists():
         raise FileNotFoundError(f"Missing Parquet dataset: {parquet_path}")
@@ -300,7 +357,8 @@ def get_feature_columns(
 
     categorical_cols = list(SECONDARY_SCREEN_CATEGORICAL_FEATURE_COLS)
     excluded_cols = set(categorical_cols)
-    excluded_cols.add(SECONDARY_SCREEN_TARGET_COL)
+    secondary_target_col = target_col_for_dataset_mode(dataset_mode)
+    excluded_cols.add(secondary_target_col)
     excluded_cols.update(SECONDARY_SCREEN_LEAKAGE_COLS)
     excluded_cols.update(SECONDARY_SCREEN_IDENTIFIER_COLS)
 
@@ -316,8 +374,8 @@ def get_feature_columns(
 
     feature_columns = categorical_cols + numerical_cols
 
-    if SECONDARY_SCREEN_TARGET_COL in feature_columns:
-        raise ValueError(f"Target column '{SECONDARY_SCREEN_TARGET_COL}' must not appear in X.")
+    if secondary_target_col in feature_columns:
+        raise ValueError(f"Target column '{secondary_target_col}' must not appear in X.")
 
     leakage_in_features = [col for col in SECONDARY_SCREEN_LEAKAGE_COLS if col in feature_columns]
     if leakage_in_features:
@@ -336,6 +394,7 @@ def load_model_dataframe(
     include_group_columns: bool = False,
 ) -> ModelingDataset:
     dataset_mode, df = load_dataset(dataset=dataset, feature_set=feature_set)
+    raw_shape = df.shape
     dataset_name = dataset_name_for_dataset_mode(dataset_mode)
     resolved_feature_set = feature_set_for_dataset_mode(dataset_mode)
     target_col = target_col_for_dataset_mode(dataset_mode)
@@ -357,6 +416,7 @@ def load_model_dataframe(
         target_col=target_col,
         feature_set=resolved_feature_set,
         group_split_columns=group_split_columns,
+        raw_shape=raw_shape,
         model_df=model_df,
         categorical_cols=categorical_cols,
         numerical_cols=numerical_cols,
@@ -460,6 +520,8 @@ def build_linear_svr_pipeline(
             ("scaler", StandardScaler(with_mean=False)),
             (
                 "model",
+                # LinearSVR is the feasible SVR baseline for these large sparse
+                # one-hot feature matrices, but it may still need tuning by split.
                 LinearSVR(
                     C=1.0,
                     epsilon=0.0,
