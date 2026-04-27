@@ -1,0 +1,11 @@
+.DS_Store
+__pycache__/
+
+data/expression/
+data/expression_cleaned/
+data/model_ready/
+data/secondary_screen/
+data/gdsc_metadata_expression_top500.csv
+secondary-screen-dose-response-curve-parameters.csv
+
+results/
