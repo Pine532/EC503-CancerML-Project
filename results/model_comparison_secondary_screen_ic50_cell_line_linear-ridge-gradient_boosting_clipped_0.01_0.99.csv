@@ -1,0 +1,4 @@
+Dataset,Dataset Mode,Target,Split,Feature Set,Model,Max Rows,Target Clipping,Clip Low Quantile,Clip High Quantile,Clip Low Value,Clip High Value,RMSE,MAE,R2,Train Seconds,Predict Seconds
+secondary_screen_ic50,secondary_screen_ic50,target_log_ic50,cell_line,,Ridge,,quantile_0.01_0.99,0.01,0.99,-3.218475978081983,1.1643046955506036,0.4803772974227632,0.29623641861106453,0.665899697242687,3.4716739654541016,0.3035392761230469
+secondary_screen_ic50,secondary_screen_ic50,target_log_ic50,cell_line,,Linear,,quantile_0.01_0.99,0.01,0.99,-3.218475978081983,1.1643046955506036,0.48092562202598543,0.29620701280715844,0.6651365472323112,5.4898598194122314,0.27866482734680176
+secondary_screen_ic50,secondary_screen_ic50,target_log_ic50,cell_line,,Gradient Boosting,,quantile_0.01_0.99,0.01,0.99,-3.218475978081983,1.1643046955506036,0.6120019878179365,0.45656757885700017,0.4577274939212098,2.9103500843048096,0.3680896759033203

@@ -1,0 +1,2 @@
+Dataset,Dataset Mode,Target,Split,Feature Set,Model,Max Rows,Target Clipping,Clip Low Quantile,Clip High Quantile,Clip Low Value,Clip High Value,RMSE,MAE,R2,Train Seconds,Predict Seconds
+secondary_screen_auc,secondary_screen_auc,target_auc,random,,Linear SVR,100000,none,,,,,0.2227591145019174,0.15556118157689827,0.36877041067595684,110.23697018623352,0.10816192626953125
