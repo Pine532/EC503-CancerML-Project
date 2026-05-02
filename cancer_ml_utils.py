@@ -12,7 +12,7 @@ from sklearn.ensemble import HistGradientBoostingRegressor, RandomForestRegresso
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LassoCV, LinearRegression, Ridge
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
-from sklearn.model_selection import GroupShuffleSplit, train_test_split
+from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import FunctionTransformer, OneHotEncoder, StandardScaler
 from sklearn.svm import LinearSVR
@@ -36,12 +36,16 @@ GDSC_DATASET_NAME = "gdsc"
 SUPPORTED_DATASETS = (
     "gdsc_metadata_only",
     "gdsc_metadata_plus_expression",
+    "gdsc_auc_metadata_only",
+    "gdsc_auc_metadata_plus_expression",
     "secondary_screen_auc",
     "secondary_screen_ic50",
 )
 DATASET_LABELS = {
     "gdsc_metadata_only": "GDSC metadata only",
     "gdsc_metadata_plus_expression": "GDSC metadata plus expression",
+    "gdsc_auc_metadata_only": "GDSC AUC metadata only",
+    "gdsc_auc_metadata_plus_expression": "GDSC AUC metadata plus expression",
     "secondary_screen_auc": "Secondary screen AUC",
     "secondary_screen_ic50": "Secondary screen log IC50",
 }
@@ -54,14 +58,13 @@ LEGACY_FEATURE_SET_TO_DATASET = {
     "metadata_only": "gdsc_metadata_only",
     "metadata_plus_expression": "gdsc_metadata_plus_expression",
 }
-SUPPORTED_SPLITS = ("random", "drug", "cell_line")
+SUPPORTED_SPLITS = ("random",)
 SPLIT_LABELS = {
     "random": "Random row split",
-    "drug": "Grouped-by-drug split",
-    "cell_line": "Grouped-by-cell-line split",
 }
 
 GDSC_TARGET_COL = "LN_IC50"
+GDSC_AUC_TARGET_COL = "AUC"
 GDSC_METADATA_FEATURE_COLS = [
     "TCGA_DESC",
     "GDSC Tissue descriptor 1",
@@ -76,12 +79,8 @@ GDSC_METADATA_FEATURE_COLS = [
     "TARGET",
     "TARGET_PATHWAY",
 ]
-GDSC_LEAKAGE_COLS = ("AUC", "Z_SCORE")
+GDSC_RESPONSE_COLS = (GDSC_TARGET_COL, GDSC_AUC_TARGET_COL, "Z_SCORE")
 GDSC_IDENTIFIER_COLS = ("COSMIC_ID", "CELL_LINE_NAME", "DRUG_ID", "DRUG_NAME")
-GDSC_GROUP_SPLIT_COLUMNS = {
-    "drug": "DRUG_ID",
-    "cell_line": "COSMIC_ID",
-}
 
 SECONDARY_SCREEN_AUC_TARGET_COL = "target_auc"
 SECONDARY_SCREEN_IC50_TARGET_COL = "target_log_ic50"
@@ -115,10 +114,6 @@ SECONDARY_SCREEN_IDENTIFIER_COLS = (
     "smiles",
     "row_name",
 )
-SECONDARY_SCREEN_GROUP_SPLIT_COLUMNS = {
-    "drug": "broad_id",
-    "cell_line": "depmap_id",
-}
 
 RANDOM_STATE = 42
 TEST_SIZE = 0.2
@@ -132,7 +127,6 @@ class ModelingDataset:
     dataset_label: str
     target_col: str
     feature_set: str | None
-    group_split_columns: dict[str, str]
     raw_shape: tuple[int, int]
     model_df: pd.DataFrame
     categorical_cols: list[str]
@@ -199,8 +193,10 @@ def resolve_dataset_mode(
 
 def feature_set_for_dataset_mode(dataset_mode: str) -> str | None:
     _validate_dataset_mode(dataset_mode)
-    if dataset_mode.startswith("gdsc_"):
-        return dataset_mode.removeprefix("gdsc_")
+    if dataset_mode in {"gdsc_metadata_only", "gdsc_auc_metadata_only"}:
+        return "metadata_only"
+    if dataset_mode in {"gdsc_metadata_plus_expression", "gdsc_auc_metadata_plus_expression"}:
+        return "metadata_plus_expression"
     return None
 
 
@@ -213,18 +209,13 @@ def dataset_name_for_dataset_mode(dataset_mode: str) -> str:
 
 def target_col_for_dataset_mode(dataset_mode: str) -> str:
     _validate_dataset_mode(dataset_mode)
+    if dataset_mode.startswith("gdsc_auc_"):
+        return GDSC_AUC_TARGET_COL
     if dataset_mode.startswith("gdsc_"):
         return GDSC_TARGET_COL
     if dataset_mode == "secondary_screen_auc":
         return SECONDARY_SCREEN_AUC_TARGET_COL
     return SECONDARY_SCREEN_IC50_TARGET_COL
-
-
-def group_split_columns_for_dataset_mode(dataset_mode: str) -> dict[str, str]:
-    _validate_dataset_mode(dataset_mode)
-    if dataset_mode.startswith("gdsc_"):
-        return GDSC_GROUP_SPLIT_COLUMNS
-    return SECONDARY_SCREEN_GROUP_SPLIT_COLUMNS
 
 
 def build_secondary_screen_ic50_dataframe(df: pd.DataFrame) -> pd.DataFrame:
@@ -275,7 +266,7 @@ def load_dataset(
 ) -> tuple[str, pd.DataFrame]:
     dataset_mode = resolve_dataset_mode(dataset=dataset, feature_set=feature_set)
 
-    if dataset_mode == "gdsc_metadata_only":
+    if dataset_mode in {"gdsc_metadata_only", "gdsc_auc_metadata_only"}:
         return dataset_mode, pd.read_csv(GDSC_METADATA_DATA_PATH)
 
     if dataset_mode == "secondary_screen_ic50":
@@ -287,9 +278,12 @@ def load_dataset(
                 "Install 'pyarrow' in the environment used for this project."
             ) from exc
 
-    parquet_path = GDSC_EXPRESSION_DATA_PATH
-    if dataset_mode == "secondary_screen_auc":
+    if dataset_mode in {"gdsc_metadata_plus_expression", "gdsc_auc_metadata_plus_expression"}:
+        parquet_path = GDSC_EXPRESSION_DATA_PATH
+    elif dataset_mode == "secondary_screen_auc":
         parquet_path = SECONDARY_SCREEN_AUC_DATA_PATH
+    else:
+        parquet_path = GDSC_EXPRESSION_DATA_PATH
 
     if not parquet_path.exists():
         raise FileNotFoundError(f"Missing Parquet dataset: {parquet_path}")
@@ -316,11 +310,12 @@ def get_feature_columns(
 
         categorical_cols = list(GDSC_METADATA_FEATURE_COLS)
         numerical_cols: list[str] = []
+        target_col = target_col_for_dataset_mode(dataset_mode)
+        leakage_cols = tuple(col for col in GDSC_RESPONSE_COLS if col != target_col)
 
-        if dataset_mode == "gdsc_metadata_plus_expression":
+        if feature_set_for_dataset_mode(dataset_mode) == "metadata_plus_expression":
             excluded_cols = set(categorical_cols)
-            excluded_cols.add(GDSC_TARGET_COL)
-            excluded_cols.update(GDSC_LEAKAGE_COLS)
+            excluded_cols.update(GDSC_RESPONSE_COLS)
             excluded_cols.update(GDSC_IDENTIFIER_COLS)
 
             candidate_cols = [col for col in df.columns if col not in excluded_cols]
@@ -328,7 +323,7 @@ def get_feature_columns(
 
             if non_numeric_cols:
                 raise ValueError(
-                    "Unexpected non-numeric columns in gdsc_metadata_plus_expression feature set: "
+                    "Unexpected non-numeric columns in GDSC metadata-plus-expression feature set: "
                     f"{non_numeric_cols}"
                 )
 
@@ -336,10 +331,10 @@ def get_feature_columns(
 
         feature_columns = categorical_cols + numerical_cols
 
-        if GDSC_TARGET_COL in feature_columns:
-            raise ValueError(f"Target column '{GDSC_TARGET_COL}' must not appear in X.")
+        if target_col in feature_columns:
+            raise ValueError(f"Target column '{target_col}' must not appear in X.")
 
-        leakage_in_features = [col for col in GDSC_LEAKAGE_COLS if col in feature_columns]
+        leakage_in_features = [col for col in leakage_cols if col in feature_columns]
         if leakage_in_features:
             raise ValueError(f"Leakage columns detected in X: {leakage_in_features}")
 
@@ -391,20 +386,16 @@ def get_feature_columns(
 def load_model_dataframe(
     dataset: str | None = None,
     feature_set: str | None = None,
-    include_group_columns: bool = False,
 ) -> ModelingDataset:
     dataset_mode, df = load_dataset(dataset=dataset, feature_set=feature_set)
     raw_shape = df.shape
     dataset_name = dataset_name_for_dataset_mode(dataset_mode)
     resolved_feature_set = feature_set_for_dataset_mode(dataset_mode)
     target_col = target_col_for_dataset_mode(dataset_mode)
-    group_split_columns = group_split_columns_for_dataset_mode(dataset_mode)
     categorical_cols, numerical_cols = get_feature_columns(df, dataset_mode=dataset_mode)
     feature_columns = categorical_cols + numerical_cols
 
     selected_cols = feature_columns + [target_col]
-    if include_group_columns:
-        selected_cols = list(dict.fromkeys([*group_split_columns.values(), *selected_cols]))
 
     model_df = df[selected_cols].copy()
     model_df = model_df.dropna(subset=[target_col])
@@ -415,7 +406,6 @@ def load_model_dataframe(
         dataset_label=DATASET_LABELS[dataset_mode],
         target_col=target_col,
         feature_set=resolved_feature_set,
-        group_split_columns=group_split_columns,
         raw_shape=raw_shape,
         model_df=model_df,
         categorical_cols=categorical_cols,
@@ -630,7 +620,6 @@ def split_dataset(
     model_df: pd.DataFrame,
     feature_columns: list[str],
     target_col: str,
-    group_split_columns: dict[str, str],
     split_strategy: str = "random",
 ) -> DatasetSplit:
     if split_strategy not in SUPPORTED_SPLITS:
@@ -640,51 +629,19 @@ def split_dataset(
     X = model_df[feature_columns].copy()
     y = model_df[target_col].copy()
 
-    if split_strategy == "random":
-        X_temp, X_test, y_temp, y_test = train_test_split(
-            X,
-            y,
-            test_size=TEST_SIZE,
-            random_state=RANDOM_STATE,
-        )
-        X_train, X_val, y_train, y_val = train_test_split(
-            X_temp,
-            y_temp,
-            test_size=VAL_SIZE_WITHIN_TRAIN,
-            random_state=RANDOM_STATE,
-        )
-        return DatasetSplit(X_train, X_val, X_test, y_train, y_val, y_test)
-
-    group_column = group_split_columns[split_strategy]
-    groups = model_df[group_column]
-    train_val_idx, test_idx = next(
-        GroupShuffleSplit(
-            n_splits=1,
-            test_size=TEST_SIZE,
-            random_state=RANDOM_STATE,
-        ).split(X, y, groups)
+    X_temp, X_test, y_temp, y_test = train_test_split(
+        X,
+        y,
+        test_size=TEST_SIZE,
+        random_state=RANDOM_STATE,
     )
-
-    X_train_val = X.iloc[train_val_idx].copy()
-    y_train_val = y.iloc[train_val_idx].copy()
-    groups_train_val = groups.iloc[train_val_idx].copy()
-
-    train_idx_rel, val_idx_rel = next(
-        GroupShuffleSplit(
-            n_splits=1,
-            test_size=VAL_SIZE_WITHIN_TRAIN,
-            random_state=RANDOM_STATE,
-        ).split(X_train_val, y_train_val, groups_train_val)
+    X_train, X_val, y_train, y_val = train_test_split(
+        X_temp,
+        y_temp,
+        test_size=VAL_SIZE_WITHIN_TRAIN,
+        random_state=RANDOM_STATE,
     )
-
-    return DatasetSplit(
-        X_train=X_train_val.iloc[train_idx_rel].copy(),
-        X_val=X_train_val.iloc[val_idx_rel].copy(),
-        X_test=X.iloc[test_idx].copy(),
-        y_train=y_train_val.iloc[train_idx_rel].copy(),
-        y_val=y_train_val.iloc[val_idx_rel].copy(),
-        y_test=y.iloc[test_idx].copy(),
-    )
+    return DatasetSplit(X_train, X_val, X_test, y_train, y_val, y_test)
 
 
 def regression_metrics(y_true: pd.Series, y_pred: np.ndarray) -> dict[str, float]:

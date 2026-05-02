@@ -1,5 +1,0 @@
-Dataset,Dataset Mode,Target,Split,Feature Set,Model,Max Rows,Target Clipping,Clip Low Quantile,Clip High Quantile,Clip Low Value,Clip High Value,RMSE,MAE,R2,Train Seconds,Predict Seconds
-secondary_screen_auc,secondary_screen_auc,target_auc,random,,Linear,,none,,,,,0.18117627395665328,0.1277075273582034,0.5902942909391995,5.048487186431885,0.5340576171875
-secondary_screen_auc,secondary_screen_auc,target_auc,random,,Ridge,,none,,,,,0.18117717159314725,0.12771822902496058,0.5902902311614012,4.50629997253418,0.5887391567230225
-secondary_screen_auc,secondary_screen_auc,target_auc,random,,Gradient Boosting,,none,,,,,0.23706644980686498,0.18201516051300823,0.2985292603780161,6.231346130371094,0.6731514930725098
-secondary_screen_auc,secondary_screen_auc,target_auc,random,,Dummy Mean,,none,,,,,0.28305299660468297,0.21102777911092596,-1.1241588793842183e-05,3.2421000003814697,0.6197605133056641

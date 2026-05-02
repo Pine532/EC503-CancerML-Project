@@ -167,14 +167,12 @@ def main() -> None:
 
     model_data = load_model_dataframe(
         dataset=args.dataset,
-        include_group_columns=args.split != "random",
     )
     model_df = cap_rows(model_data.model_df, args.max_rows)
     data_split = split_dataset(
         model_df,
         feature_columns=model_data.feature_columns,
         target_col=model_data.target_col,
-        group_split_columns=model_data.group_split_columns,
         split_strategy=args.split,
     )
 

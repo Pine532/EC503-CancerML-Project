@@ -24,7 +24,7 @@ Secondary-screen predictors are:
 - `indication`
 - `phase`
 
-Secondary-screen models exclude dose-response outputs and identifiers as predictors, including `auc`, `ic50`, `ec50`, `slope`, `r2`, `upper_limit`, `lower_limit`, `log_ic50`, `log_ec50`, `target_auc`, `target_log_ic50`, `broad_id`, `depmap_id`, `ccle_name`, `smiles`, and `row_name`. `broad_id` and `depmap_id` are retained only for grouped splits.
+Secondary-screen models exclude dose-response outputs and identifiers as predictors, including `auc`, `ic50`, `ec50`, `slope`, `r2`, `upper_limit`, `lower_limit`, `log_ic50`, `log_ec50`, `target_auc`, `target_log_ic50`, `broad_id`, `depmap_id`, `ccle_name`, `smiles`, and `row_name`.
 
 ## Regenerating Cleaned Data
 
@@ -46,23 +46,18 @@ Core GDSC comparisons:
 ```powershell
 .\.venv\Scripts\python.exe model_comparison.py --dataset gdsc_metadata_only --split random --models "Dummy Mean" Linear Ridge
 .\.venv\Scripts\python.exe model_comparison.py --dataset gdsc_metadata_plus_expression --split random --models "Dummy Mean" Linear Ridge
-.\.venv\Scripts\python.exe model_comparison.py --dataset gdsc_metadata_plus_expression --split cell_line --models Linear Ridge
 ```
 
 Secondary AUC:
 
 ```powershell
 .\.venv\Scripts\python.exe model_comparison.py --dataset secondary_screen_auc --split random --models "Dummy Mean" Linear Ridge "Gradient Boosting"
-.\.venv\Scripts\python.exe model_comparison.py --dataset secondary_screen_auc --split cell_line --models Linear Ridge "Gradient Boosting"
-.\.venv\Scripts\python.exe model_comparison.py --dataset secondary_screen_auc --split drug --models Linear Ridge "Gradient Boosting"
 ```
 
 Secondary IC50 with train-derived target clipping:
 
 ```powershell
 .\.venv\Scripts\python.exe model_comparison.py --dataset secondary_screen_ic50 --split random --models "Dummy Mean" Linear Ridge "Gradient Boosting" --clip-target-quantiles 0.01 0.99
-.\.venv\Scripts\python.exe model_comparison.py --dataset secondary_screen_ic50 --split cell_line --models Linear Ridge "Gradient Boosting" --clip-target-quantiles 0.01 0.99
-.\.venv\Scripts\python.exe model_comparison.py --dataset secondary_screen_ic50 --split drug --models Linear Ridge "Gradient Boosting" --clip-target-quantiles 0.01 0.99
 ```
 
 Sampled SVR experiments:
@@ -90,7 +85,7 @@ The neural-network script uses PyTorch if installed. If PyTorch is unavailable, 
 
 Outputs:
 
-- `results/all_results_combined.csv`
+- `results/all_results_with_optimized.csv`
 - `figures/r2_by_model_dataset_split.png`
 - `figures/rmse_by_model_dataset_split.png`
 - `figures/gdsc_metadata_vs_expression.png`
@@ -103,3 +98,4 @@ Outputs:
 - Gradient Boosting uses XGBoost when installed and otherwise falls back to sklearn `HistGradientBoostingRegressor`.
 - `secondary_screen_ic50` has large finite target outliers; `--clip-target-quantiles 0.01 0.99` clips targets using training-set thresholds only.
 - Generated data, results, figures, and local virtual environments are ignored by git.
+- The canonical pipeline now supports random splits only.

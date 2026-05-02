@@ -1,2 +1,0 @@
-Dataset,Dataset Mode,Target,Split,Feature Set,Model,Backend,Rows Used,Input Dim,Epochs,Batch Size,Learning Rate,RMSE,MAE,R2,Train Seconds
-secondary_screen_ic50,secondary_screen_ic50,target_log_ic50,random,,Neural Network,sklearn MLPRegressor,100000,2994,20,2048,0.001,2.005728623568345,0.5070561170578003,-0.042464375495910645,24.99091076850891

@@ -1,4 +1,0 @@
-Dataset,Dataset Mode,Target,Split,Feature Set,Model,Max Rows,Target Clipping,Clip Low Quantile,Clip High Quantile,Clip Low Value,Clip High Value,RMSE,MAE,R2,Train Seconds,Predict Seconds
-secondary_screen_auc,secondary_screen_auc,target_auc,drug,,Gradient Boosting,,none,,,,,0.25866076755188966,0.19896972860859546,0.16089558222084488,5.395233631134033,0.7229759693145752
-secondary_screen_auc,secondary_screen_auc,target_auc,drug,,Ridge,,none,,,,,0.2621470376007492,0.20211562841815772,0.1381239902847623,3.714674949645996,0.565960168838501
-secondary_screen_auc,secondary_screen_auc,target_auc,drug,,Linear,,none,,,,,0.26215607076050956,0.20212380549849432,0.1380645915755656,4.393570899963379,0.5751800537109375

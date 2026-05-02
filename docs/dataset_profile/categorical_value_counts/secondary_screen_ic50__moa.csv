@@ -1,0 +1,523 @@
+Value,Count,Percent
+EGFR inhibitor,11059,3.108346637285544
+Unknown,11019,3.097103860769456
+HDAC inhibitor,9777,2.7480156499449104
+tubulin polymerization inhibitor,9377,2.635587884784026
+topoisomerase inhibitor,8873,2.493928900681312
+CDK inhibitor,7378,2.0737301283925076
+mTOR inhibitor,7083,1.9908146515863558
+HSP inhibitor,6706,1.8848514829222225
+Aurora kinase inhibitor,6524,1.8336968497740203
+MEK inhibitor,6419,1.8041845614192882
+protein synthesis inhibitor,5052,1.4199626739819666
+PI3K inhibitor,4999,1.4050659950981494
+"mTOR inhibitor, PI3K inhibitor",4033,1.1335529422346142
+proteasome inhibitor,3635,1.0216873158995345
+CHK inhibitor,3232,0.9084163424999437
+AKT inhibitor,3098,0.8707530411710476
+adrenergic receptor antagonist,3084,0.8668180693904166
+glucocorticoid receptor agonist,3023,0.8496728352033819
+ATPase inhibitor,2824,0.7937400220358419
+BCL inhibitor,2770,0.7785622737391226
+PLK inhibitor,2718,0.7639466642682077
+PARP inhibitor,2588,0.7274076405909203
+NFkB pathway inhibitor,2537,0.7130731005329076
+microtubule inhibitor,2479,0.6967710745845794
+ALK tyrosine kinase receptor inhibitor,2460,0.6914307557394375
+VEGFR inhibitor,2235,0.6281901378364401
+histamine receptor antagonist,2195,0.6169473613203517
+histone lysine methyltransferase inhibitor,2168,0.609358487171992
+RAF inhibitor,2071,0.5820947541204776
+serotonin receptor antagonist,2024,0.5688844917140736
+cyclooxygenase inhibitor,2013,0.5657927281721494
+DNA inhibitor,1975,0.5551120904818654
+protein tyrosine kinase inhibitor,1970,0.5537067434173543
+ribonucleotide reductase inhibitor,1917,0.5388100645335372
+JAK inhibitor,1889,0.5309401209722753
+adrenergic receptor agonist,1855,0.5213837609336002
+glycogen synthase kinase inhibitor,1840,0.517167719740067
+exportin antagonist,1833,0.5152002338497516
+sodium channel blocker,1805,0.5073302902884896
+HMGCR inhibitor,1705,0.47922334899826863
+DNA alkylating agent,1658,0.4660130865918647
+other antibiotic,1614,0.4536460324241675
+membrane integrity inhibitor,1607,0.451678546533852
+IKK inhibitor,1542,0.4334090346952083
+thymidylate synthase inhibitor,1529,0.4297551323274796
+bromodomain inhibitor,1525,0.42863085467587075
+CC chemokine receptor antagonist,1519,0.4269444381984575
+antiprotozoal agent,1505,0.42300946641782655
+ATR kinase inhibitor,1497,0.4207609111146089
+src inhibitor,1494,0.41991770287590224
+bacterial DNA gyrase inhibitor,1479,0.41570166168236905
+opioid receptor antagonist,1475,0.4145773840307602
+DNA methyltransferase inhibitor,1464,0.4114856204888359
+acetylcholine receptor agonist,1446,0.4064263710565961
+calcium channel blocker,1445,0.4061453016436939
+dopamine receptor antagonist,1431,0.402210329863063
+RNA polymerase inhibitor,1429,0.40164819103725863
+benzodiazepine receptor agonist,1428,0.4013671216243564
+bacterial 50S ribosomal subunit inhibitor,1424,0.40024284397274756
+phosphodiesterase inhibitor,1407,0.39546466395340996
+MDM inhibitor,1367,0.3842218874373215
+STAT inhibitor,1358,0.3816922627212016
+p38 MAPK inhibitor,1356,0.3811301238953972
+caspase activator,1329,0.3735412497470375
+"EGFR inhibitor, VEGFR inhibitor",1321,0.37129269444381985
+DNA synthesis inhibitor,1316,0.3698873473793088
+retinoid receptor agonist,1255,0.35274211319227394
+dihydrofolate reductase inhibitor,1197,0.33644008724394575
+kinesin-like spindle protein inhibitor,1193,0.3353158095923369
+acetylcholine receptor antagonist,1165,0.327445866031075
+farnesyltransferase inhibitor,1157,0.32519731072785735
+"nuclear factor erythroid derived, like (NRF2) activator",1155,0.32463517190205293
+focal adhesion kinase inhibitor,1148,0.32266768601173745
+tyrosine kinase inhibitor,1145,0.32182447777303086
+glutamate receptor antagonist,1145,0.32182447777303086
+PKC inhibitor,1115,0.31339239538596453
+XIAP inhibitor,1115,0.31339239538596453
+rho associated kinase inhibitor,1114,0.3131113259730623
+DNA polymerase inhibitor,1083,0.3043981741730938
+potassium channel blocker,1073,0.30158748004407165
+TGF beta receptor inhibitor,1073,0.30158748004407165
+metalloproteinase inhibitor,1053,0.29596609178602745
+bacterial permeability inducer,1039,0.29203112000539655
+vitamin D receptor agonist,1014,0.2850043846828412
+adenosine receptor antagonist,1008,0.28331796820542804
+"KIT inhibitor, PDGFR tyrosine kinase receptor inhibitor, VEGFR inhibitor",989,0.277977649360286
+IGF-1 inhibitor,988,0.2776965799473838
+PDGFR tyrosine kinase receptor inhibitor,937,0.26336203988937107
+matrix metalloprotease inhibitor,925,0.2599892069345445
+microtubule stabilizing agent,925,0.2599892069345445
+JNK inhibitor,898,0.25240033278618484
+Bcr-Abl kinase inhibitor,898,0.25240033278618484
+chelating agent,897,0.25211926337328266
+"microtubule inhibitor, tubulin polymerization inhibitor",896,0.25183819396038043
+hypoxia inducible factor inhibitor,896,0.25183819396038043
+"NFkB pathway inhibitor, proteasome inhibitor",888,0.24958963865716277
+cardiac glycoside,888,0.24958963865716277
+histone lysine demethylase inhibitor,881,0.2476221527668473
+Bruton's tyrosine kinase (BTK) inhibitor,877,0.24649787511523846
+"FLT3 inhibitor, JAK inhibitor",877,0.24649787511523846
+ubiquitin specific protease inhibitor,875,0.24593573628943405
+dihydroorotate dehydrogenase inhibitor,873,0.2453735974636296
+apoptosis stimulant,866,0.24340611157331413
+HCV inhibitor,862,0.2422818339217053
+CDC inhibitor,858,0.2411575562700965
+"dopamine receptor antagonist, serotonin receptor antagonist",847,0.23806579272817213
+peptidase inhibitor,819,0.23019584916691027
+nitric oxide synthase inhibitor,816,0.22935264092820365
+"microtubule stabilizing agent, tubulin polymerization inhibitor",813,0.228509432689497
+"RNA synthesis inhibitor, topoisomerase inhibitor",805,0.2262608773862793
+opioid receptor agonist,804,0.2259798079733771
+ubiquitin C-terminal hydrolase inhibitor,800,0.22485553032176825
+niacinamide phosphoribosyltransferase inhibitor,798,0.22429339149596383
+DNA intercalating agent,796,0.22373125267015942
+inosine monophosphate dehydrogenase inhibitor,794,0.223169113844355
+"PDGFR tyrosine kinase receptor inhibitor, VEGFR inhibitor",791,0.22232590560564836
+purine antagonist,780,0.21923414206372407
+cytochrome P450 inhibitor,778,0.21867200323791963
+Pim kinase inhibitor,778,0.21867200323791963
+progestogen hormone,774,0.2175477255863108
+"CDK inhibitor, growth factor receptor inhibitor",763,0.2144559620443865
+mineralocorticoid receptor antagonist,763,0.2144559620443865
+HSP antagonist,738,0.20742922672183123
+oxidative stress inducer,736,0.2068670878960268
+"DNA alkylating agent, DNA synthesis inhibitor",736,0.2068670878960268
+potassium channel activator,731,0.20546174083151575
+pyruvate dehydrogenase kinase inhibitor,724,0.2034942549412003
+WEE1 kinase inhibitor,714,0.2006835608121782
+"Bcr-Abl kinase inhibitor, FLT3 inhibitor, PDGFR tyrosine kinase receptor inhibitor",712,0.20012142198637378
+"KIT inhibitor, VEGFR inhibitor",702,0.19731072785735165
+"aldehyde dehydrogenase inhibitor, DNA methyltransferase inhibitor, TRPV agonist",701,0.19702965844444945
+"JAK inhibitor, STAT inhibitor",695,0.1953432419670362
+progesterone receptor agonist,691,0.19421896431542734
+T-type calcium channel blocker,681,0.19140827018640524
+acetylcholinesterase inhibitor,677,0.1902839925347964
+GABA benzodiazepine site receptor agonist,670,0.18831650664448094
+MET inhibitor,668,0.1877543678186765
+sterol demethylase inhibitor,661,0.18578688192836104
+glutamate receptor positive allosteric modulator,652,0.18325725721224112
+"FGFR inhibitor, VEGFR inhibitor",635,0.17847907719290354
+cholinergic receptor antagonist,629,0.1767926607154903
+kinesin inhibitor,628,0.1765115913025881
+carbonic anhydrase inhibitor,621,0.1745441054122726
+TRPV antagonist,619,0.1739819665864682
+tyrosine phosphatase inhibitor,617,0.17341982776066378
+FLT3 inhibitor,611,0.1717334112832505
+prostanoid receptor antagonist,607,0.17060913363164165
+estrogen receptor agonist,605,0.17004699480583724
+"tubulin polymerization inhibitor, VE-cadherin antagonist",585,0.16442560654779304
+cannabinoid receptor antagonist,578,0.16245812065747756
+"cell cycle inhibitor, PLK inhibitor",577,0.16217705124457535
+acetylcholine receptor allosteric modulator,562,0.1579610100510422
+endothelin receptor antagonist,554,0.15571245474782452
+P glycoprotein inhibitor,552,0.1551503159220201
+"cyclooxygenase inhibitor, prostanoid receptor antagonist",549,0.15430710768331346
+nedd activating enzyme inhibitor,548,0.15402603827041125
+vasopressin receptor antagonist,547,0.15374496885750905
+serotonin receptor agonist,545,0.15318283003170463
+glutamate receptor modulator,541,0.1520585523800958
+androgen receptor modulator,538,0.15121534414138915
+telomerase inhibitor,528,0.14840465001236705
+"Bcr-Abl kinase inhibitor, ephrin inhibitor, KIT inhibitor, PDGFR tyrosine kinase receptor inhibitor, src inhibitor, tyrosine kinase inhibitor",522,0.14671823353495378
+"dehydrogenase inhibitor, inositol monophosphatase inhibitor",498,0.13997256762530075
+"Aurora kinase inhibitor, Bcr-Abl kinase inhibitor, FLT3 inhibitor, JAK inhibitor",491,0.13800508173498527
+steroid,489,0.13744294290918085
+calcium channel activator,484,0.1360375958446698
+GABA receptor antagonist,481,0.13519438760596317
+maternal embryonic leucine zipper kinase inhibitor,476,0.13378904054145213
+"CDK inhibitor, FLT3 inhibitor, JAK inhibitor",471,0.13238369347694107
+survivin inhibitor,470,0.13210262406403886
+"PI3K inhibitor, mTOR inhibitor",469,0.13182155465113665
+deubiquitinase inhibitor,468,0.13154048523823444
+bone morphogenic protein inhibitor,468,0.13154048523823444
+"mediator release inhibitor, SYK inhibitor",467,0.1312594158253322
+"DNA protein kinase inhibitor, PI3K inhibitor",465,0.1306972769995278
+ATP synthase inhibitor,465,0.1306972769995278
+MAP kinase phosphatase inhibitor,464,0.1304162075866256
+ubiquitin-conjugating enzyme inhibitor,462,0.12985406876082117
+"CDK inhibitor, cell cycle inhibitor, MCL1 inhibitor",461,0.12957299934791897
+"DNA inhibitor, topoisomerase inhibitor",460,0.12929192993501676
+"Aurora kinase inhibitor, growth factor receptor inhibitor",460,0.12929192993501676
+"BCL inhibitor, MCL1 inhibitor",460,0.12929192993501676
+"FGFR inhibitor, KIT inhibitor, PDGFR tyrosine kinase receptor inhibitor, VEGFR inhibitor",459,0.12901086052211455
+other antifungal,457,0.12844872169631014
+"ALK tyrosine kinase receptor inhibitor, insulin growth factor receptor inhibitor",457,0.12844872169631014
+dopamine uptake inhibitor,457,0.12844872169631014
+"FLT3 inhibitor, KIT inhibitor, PKC inhibitor",456,0.1281676522834079
+psychoactive drug,456,0.1281676522834079
+eukaryotic translation elongation factor 2 inhibitor,456,0.1281676522834079
+hedgehog pathway inhibitor,455,0.1278865828705057
+NAMPT inhibitor,453,0.12732444404470128
+"EGFR inhibitor, protein tyrosine kinase inhibitor",453,0.12732444404470128
+"kinesin inhibitor, kinesin-like spindle protein inhibitor",453,0.12732444404470128
+phosphatidylglycerophosphatase inhibitor,453,0.12732444404470128
+c-Met inhibitor,452,0.12704337463179907
+"src inhibitor, VEGFR inhibitor",451,0.12676230521889684
+syk inhibitor,449,0.12620016639309242
+collagenase inhibitor,447,0.12563802756728804
+"cyclooxygenase inhibitor, histone acetyltransferase inhibitor, lipoxygenase inhibitor, NFkB pathway inhibitor",447,0.12563802756728804
+angiotensin converting enzyme inhibitor,447,0.12563802756728804
+P selectin inhibitor,446,0.12535695815438583
+sodium channel activator,445,0.1250758887414836
+breast cancer resistance protein inhibitor,445,0.1250758887414836
+"antitumor agent, ribonucleotide reductase inhibitor",443,0.12451374991567918
+FGFR antagonist,442,0.12423268050277697
+p53 activator,442,0.12423268050277697
+G protein signaling inhibitor,441,0.12395161108987476
+thymidine phosphorylase inhibitor,441,0.12395161108987476
+dopamine receptor ligand,438,0.12310840285116811
+MTH1 inhibitor,434,0.12198412519955927
+"DNA alkylating agent, DNA inhibitor",433,0.12170305578665706
+phospholipase inhibitor,431,0.12114091696085265
+phosphoinositide dependent kinase inhibitor,431,0.12114091696085265
+DUB inhibitor,430,0.12085984754795044
+"AKT inhibitor, MAP kinase inhibitor",423,0.11889236165763496
+"DNA directed DNA polymerase inhibitor, thymidylate synthase inhibitor",421,0.11833022283183055
+bacterial cell wall synthesis inhibitor,419,0.11776808400602613
+"protein tyrosine kinase inhibitor, tyrosine kinase inhibitor",417,0.1172059451802217
+immunosuppressant,416,0.1169248757673195
+glucokinase activator,416,0.1169248757673195
+"ATPase inhibitor, TRPV agonist",415,0.11664380635441729
+SIRT inhibitor,413,0.11608166752861288
+"DNA synthesis inhibitor, RNA synthesis inhibitor",412,0.11580059811571067
+"src inhibitor, syk inhibitor",411,0.11551952870280843
+HIV integrase inhibitor,411,0.11551952870280843
+"src inhibitor, tubulin polymerization inhibitor",407,0.11439525105119962
+antitumor agent,406,0.11411418163829738
+"mitochondrial DNA polymerase inhibitor, phosphatase inhibitor",404,0.11355204281249297
+"IKK inhibitor, NFkB pathway inhibitor",403,0.11327097339959076
+antioxidant,402,0.11298990398668855
+"CDK inhibitor, CHK inhibitor, PKC inhibitor",402,0.11298990398668855
+ICAM1 expression inhibitor,400,0.11242776516088412
+SIRT activator,398,0.11186562633507971
+mitotic kinase inhibitor,398,0.11186562633507971
+"FLT3 inhibitor, growth factor receptor inhibitor, JAK inhibitor",397,0.1115845569221775
+"EGFR inhibitor, FGFR inhibitor, FLT3 inhibitor, PDGFR tyrosine kinase receptor inhibitor, VEGFR inhibitor",396,0.1113034875092753
+fungal lanosterol demethylase inhibitor,390,0.10961707103186204
+"FAAH inhibitor, FAAH reuptake inhibitor",386,0.1084927933802532
+voltage-gated sodium channel blocker,385,0.10821172396735099
+"chelating agent, topoisomerase inhibitor",385,0.10821172396735099
+"DNA replication inhibitor, STAT inhibitor",384,0.10793065455444878
+calcineurin inhibitor,384,0.10793065455444878
+anthelmintic agent,382,0.10736851572864434
+angiogenesis inhibitor,380,0.10680637690283992
+angiotensin receptor antagonist,380,0.10680637690283992
+RNA synthesis inhibitor,380,0.10680637690283992
+membrane permeability inhibitor,379,0.10652530748993773
+"Aurora kinase inhibitor, JAK inhibitor",377,0.10596316866413329
+"estrogen receptor antagonist, selective estrogen receptor modulator (SERM)",376,0.10568209925123108
+RSV fusion inhibitor,374,0.10511996042542666
+neurotrophic agent,374,0.10511996042542666
+"serotonin receptor agonist, dopamine receptor agonist",368,0.1034335439480134
+LDL receptor activator,367,0.10315247453511119
+choleretic agent,363,0.10202819688350236
+non-nucleoside reverse transcriptase inhibitor,362,0.10174712747060015
+"ALK tyrosine kinase receptor inhibitor, EGFR inhibitor",360,0.10118498864479572
+"Abl kinase inhibitor, Aurora kinase inhibitor, FLT3 inhibitor",356,0.10006071099318689
+PPAR receptor agonist,353,0.09921750275448024
+anticancer agent,350,0.0983742945157736
+ARF inhibitor,349,0.0980932251028714
+"Bcr-Abl kinase inhibitor, KIT inhibitor, PDGFR tyrosine kinase receptor inhibitor",348,0.09781215568996919
+MAP kinase inhibitor,348,0.09781215568996919
+toll-like receptor agonist,346,0.09725001686416476
+stearoyl-CoA desaturase inhibitor,344,0.09668787803836036
+G protein-coupled receptor agonist,343,0.09640680862545814
+ACAT inhibitor,341,0.09584466979965373
+"ATP synthase inhibitor, ATPase inhibitor",340,0.0955636003867515
+"adenosine deaminase inhibitor, ribonucleotide reductase inhibitor",339,0.0952825309738493
+centromere associated protein inhibitor,338,0.09500146156094709
+"CDK inhibitor, glycogen synthase kinase inhibitor",337,0.09472039214804488
+sodium/hydrogen exchanger inhibitor,336,0.09443932273514268
+SYK inhibitor,336,0.09443932273514268
+adenosine receptor agonist,335,0.09415825332224047
+"Bcr-Abl kinase inhibitor, LYN tyrosine kinase inhibitor",333,0.09359611449643604
+"MAP kinase inhibitor, MEK inhibitor",333,0.09359611449643604
+p21 activated kinase inhibitor,330,0.09275290625772942
+androgen receptor antagonist,328,0.09219076743192499
+cholesteryl ester transfer protein inhibitor,322,0.09050435095451173
+tachykinin antagonist,320,0.0899422121287073
+phosphofructokinase inhibitor,320,0.0899422121287073
+PAR agonist,320,0.0899422121287073
+ion channel antagonist,318,0.08938007330290289
+"FLT3 inhibitor, KIT inhibitor, PDGFR tyrosine kinase receptor inhibitor, RAF inhibitor, RET tyrosine kinase inhibitor, VEGFR inhibitor",317,0.08909900389000067
+benzodiazepine receptor antagonist,317,0.08909900389000067
+"Abl kinase inhibitor, Bcr-Abl kinase inhibitor",316,0.08881793447709847
+"FOXM1 inhibitor, protein synthesis inhibitor",315,0.08853686506419625
+"Aurora kinase inhibitor, FLT3 inhibitor, VEGFR inhibitor",315,0.08853686506419625
+"CDK inhibitor, tyrosine kinase inhibitor",314,0.08825579565129404
+"RAF inhibitor, VEGFR inhibitor",314,0.08825579565129404
+notch signaling inhibitor,314,0.08825579565129404
+gamma glutamyltransferase Inhibitors,312,0.08769365682548962
+beta glucuronidase inhibitor,311,0.08741258741258741
+"cyclooxygenase inhibitor, lipoxygenase inhibitor",310,0.0871315179996852
+aspartic protease inhibitor,309,0.086850448586783
+prostaglandin inhibitor,308,0.08656937917388079
+"glycine transporter inhibitor, GlyT-1 inhibitor",307,0.08628830976097858
+constitutive androstane receptor (CAR) agonist,304,0.08544510152227194
+caspase inhibitor,304,0.08544510152227194
+BMI-1 inhibitor,303,0.08516403210936972
+serum/glucocorticoid regulated kinase inhibitor,301,0.08460189328356531
+monopolar spindle 1 kinase inhibitor,301,0.08460189328356531
+"glucocorticoid receptor antagonist, progesterone receptor antagonist",295,0.08291547680615205
+cannabinoid receptor agonist,292,0.08207226856744541
+"FGFR inhibitor, KIT inhibitor, PDGFR tyrosine kinase receptor inhibitor, RAF inhibitor, RET tyrosine kinase inhibitor, VEGFR inhibitor",286,0.08038585209003216
+FAAH inhibitor,283,0.07954264385132552
+estrogen receptor antagonist,282,0.07926157443842331
+anti-pneumocystis agent,278,0.07813729678681447
+elastase inhibitor,277,0.07785622737391226
+beta-catenin inhibitor,276,0.07757515796101006
+ephrin inhibitor,275,0.07729408854810783
+cytokine production inhibitor,272,0.07645088030940121
+topical anesthetic,269,0.07560767207069458
+GABA receptor modulator,267,0.07504553324489016
+tumor necrosis factor release inhibitor,266,0.07476446383198795
+thrombopoietin receptor agonist,265,0.07448339441908575
+interleukin synthesis inhibitor,265,0.07448339441908575
+adenosine kinase inhibitor,262,0.07364018618037911
+"adrenergic receptor agonist, neurotransmitter",262,0.07364018618037911
+"antimalarial agent, DNA inhibitor",259,0.07279697794167247
+insulin growth factor receptor inhibitor,249,0.06998628381265037
+radiopaque medium,248,0.06970521439974817
+local anesthetic,247,0.06942414498684595
+"benzodiazepine receptor agonist, GABA benzodiazepine site receptor partial agonist",243,0.06829986733523712
+"IGF-1 inhibitor, insulin growth factor receptor inhibitor, insulin receptor ligand",242,0.0680187979223349
+glucose dependent insulinotropic receptor agonist,240,0.06745665909653048
+FGFR inhibitor,239,0.06717558968362826
+K-ras inhibitor,239,0.06717558968362826
+fungal squalene epoxidase inhibitor,234,0.06577024261911722
+"EGFR inhibitor, RET tyrosine kinase inhibitor, VEGFR inhibitor",234,0.06577024261911722
+dipeptidyl peptidase inhibitor,233,0.065489173206215
+oxidosqualene cyclase inhibitor,233,0.065489173206215
+mucus protecting agent,233,0.065489173206215
+"JAK inhibitor, syk inhibitor",231,0.06492703438041059
+"acetylcholinesterase inhibitor, microtubule inhibitor",225,0.06324061790299731
+"Abl kinase inhibitor, Bcr-Abl kinase inhibitor, src inhibitor",225,0.06324061790299731
+cholesterol inhibitor,225,0.06324061790299731
+Bcl-XL downregulator,222,0.06239740966429069
+"glycogen synthase kinase inhibitor, lipoxygenase inhibitor",221,0.062116340251388485
+PKC activator,220,0.06183527083848628
+"FLT3 inhibitor, KIT inhibitor, PDGFR tyrosine kinase receptor inhibitor, RET tyrosine kinase inhibitor, VEGFR inhibitor",218,0.06127313201268186
+ATP channel blocker,215,0.06042992377397522
+mannosidase inhibitor,214,0.060148854361073006
+laxative,214,0.060148854361073006
+steroidogenic factor antagonist,212,0.05958671553526859
+mineralocorticoid receptor agonist,211,0.05930564612236638
+"RET tyrosine kinase inhibitor, VEGFR inhibitor",205,0.05761922964495311
+HIV protease inhibitor,204,0.05733816023205091
+sodium/glucose cotransporter inhibitor,202,0.056776021406246484
+"antioxidant, capillary stabilizing agent, nitric oxide scavenger",202,0.056776021406246484
+HSP inducer,195,0.05480853551593102
+"L-type calcium channel blocker, T-type calcium channel blocker",195,0.05480853551593102
+RET tyrosine kinase inhibitor,194,0.054527466103028804
+"HCV inhibitor, XIAP inhibitor",193,0.0542463966901266
+lysophosphatidic acid receptor antagonist,193,0.0542463966901266
+SHIP2 phosphatase inhibitor,192,0.05396532727722439
+DNA directed DNA polymerase inhibitor,192,0.05396532727722439
+bacterial antifolate,192,0.05396532727722439
+MER tyrosine kinase inhibitor,189,0.05312211903851775
+urotensin receptor antagonist,187,0.05255998021271333
+monoamine oxidase inhibitor,184,0.0517167719740067
+cationic surfactant,173,0.04862500843208238
+"bacterial 30S ribosomal subunit inhibitor, bacterial 50S ribosomal subunit inhibitor",169,0.047500730780473545
+BAX activator,169,0.047500730780473545
+mucolytic agent,167,0.04693859195466912
+"Abl kinase inhibitor, src inhibitor, VEGFR inhibitor",167,0.04693859195466912
+PERK inhibitor,166,0.046657522541766916
+"apoptosis stimulant, NFkB pathway inhibitor",165,0.04637645312886471
+antiviral,163,0.04581431430306028
+"immunosuppressant, protein synthesis inhibitor, purine antagonist",162,0.04553324489015807
+thyrotropin releasing hormone receptor agonist,161,0.045252175477255865
+calmodulin antagonist,160,0.04497110606435365
+renin inhibitor,160,0.04497110606435365
+AP inhibitor,159,0.044690036651451444
+CCK receptor agonist,159,0.044690036651451444
+antimalarial agent,156,0.04384682841274481
+GGTase inhibitor,149,0.041879342522429336
+Procollagen C-Endopeptidase Inhibitors,148,0.04159827310952713
+dehydrogenase inhibitor,145,0.0407550648708205
+sphingosine kinase inhibitor,145,0.0407550648708205
+osmosis stimulant,141,0.039630787219211656
+antispasmodic,140,0.03934971780630945
+"cyclooxygenase inhibitor, FAAH inhibitor, TRPV antagonist",134,0.037663301328896184
+microsomal trigylceride transfer protein inhibitor,126,0.035414746025678505
+"electrolyte reabsorption inhibitor, thromboxane receptor antagonist",125,0.03513367661277629
+melanin inhibitor,124,0.03485260719987408
+TRPV agonist,124,0.03485260719987408
+"adenosine receptor agonist, cAMP stimulant",123,0.03457153778697187
+anti-inflammatory agent,119,0.03344726013536303
+bacterial 30S ribosomal subunit inhibitor,115,0.03232298248375419
+dopamine reuptake inhibitor,115,0.03232298248375419
+sodium/chloride cotransporter inhibitor,115,0.03232298248375419
+ribosomal protein inhibitor,114,0.032041913070851975
+glutamate inhibitor,109,0.03063656600634093
+GK0582 inhibitor,106,0.029793357767634296
+interleukin inhibitor,106,0.029793357767634296
+casein kinase inhibitor,105,0.029512288354732085
+CFTR channel antagonist,102,0.028669080116025456
+prostanoid receptor agonist,101,0.028388010703123242
+"ATPase inhibitor, gastrin inhibitor",101,0.028388010703123242
+structural glycoprotein antagonist,98,0.027544802464416613
+anxiolytic,97,0.027263733051514402
+lipoxygenase inhibitor,96,0.026982663638612195
+tryptophan hydroxylase inhibitor,91,0.02557731657410114
+benzodiazepine receptor ligand,90,0.02529624716119893
+HIV attachment inhibitor,89,0.025015177748296723
+aromatase inhibitor,86,0.02417196950959009
+glutamate receptor agonist,86,0.02417196950959009
+"cyclooxygenase inhibitor, PPAR receptor agonist",84,0.02360983068378567
+acetylcholine release enhancer,83,0.023328761270883458
+GABA uptake inhibitor,80,0.022485553032176826
+atherosclerosis formation inhibitor,80,0.022485553032176826
+"FGFR inhibitor, PDGFR tyrosine kinase receptor inhibitor, VEGFR inhibitor",78,0.021923414206372404
+"GABA receptor antagonist, TP53 activator",77,0.021642344793470197
+"hedgehog pathway inhibitor, smoothened receptor antagonist",72,0.020236997728959143
+dopamine synthesis inhibitor,70,0.019674858903154725
+cholinesterase inhibitor,65,0.01826951183864367
+DNA damage inducer,62,0.01742630359993704
+"NAD precursor, vitamin B",62,0.01742630359993704
+toll-like receptor antagonist,61,0.01714523418703483
+"FLT3 inhibitor, tyrosine kinase inhibitor",58,0.0163020259483282
+"estrogen receptor antagonist, progesterone receptor agonist",56,0.015739887122523777
+smoothened receptor antagonist,56,0.015739887122523777
+vitamin B,56,0.015739887122523777
+"estrogen receptor agonist, estrogenic hormone",48,0.013491331819306097
+serotonin receptor partial agonist,48,0.013491331819306097
+leukotriene synthesis inhibitor,48,0.013491331819306097
+"bone resorption inhibitor, osteoclast inhibitor",47,0.013210262406403885
+"apoptosis stimulant, retinoid receptor agonist",47,0.013210262406403885
+MAP kinase activator,46,0.012929192993501676
+electron acceptor,44,0.012367054167697254
+hypoxia inducible factor prolyl hydroxylase inhibitor,44,0.012367054167697254
+monoacylglucerol lipase inhibitor,42,0.011804915341892834
+NFkB pathway modulator,42,0.011804915341892834
+"cytochrome P450 inhibitor, imidazoline receptor ligand",40,0.011242776516088413
+"glucocorticoid receptor agonist, immunosuppressant",38,0.010680637690283993
+progesterone receptor antagonist,37,0.010399568277381782
+CCK receptor antagonist,37,0.010399568277381782
+guanylate cyclase stimulant,36,0.010118498864479571
+vitamin K antagonist,35,0.009837429451577362
+dopamine receptor agonist,33,0.00927529062577294
+adenylyl cyclase activator,32,0.00899422121287073
+cholinesterase reactivator,32,0.00899422121287073
+calcium channel modulator,32,0.00899422121287073
+hydantoin antiepileptic,32,0.00899422121287073
+"FLT3 inhibitor, KIT inhibitor, PDGFR tyrosine kinase receptor inhibitor",29,0.0081510129741641
+cytidine deaminase inhibitor,28,0.007869943561261888
+"AKT inhibitor, mTOR inhibitor",27,0.0075888741483596785
+enkephalinase inhibitor,27,0.0075888741483596785
+glutathione transferase inhibitor,26,0.007307804735457469
+bacterial DNA inhibitor,26,0.007307804735457469
+carnitine palmitoyltransferase inhibitor,26,0.007307804735457469
+growth factor receptor inhibitor,25,0.007026735322555258
+beta-secretase inhibitor,24,0.006745665909653049
+purinergic receptor antagonist,24,0.006745665909653049
+"estrogen receptor agonist, glucocorticoid receptor antagonist, progesterone receptor agonist, progesterone receptor antagonist",23,0.006464596496750838
+leukotriene receptor antagonist,22,0.006183527083848627
+"acetylcholine receptor agonist, benzodiazepine receptor agonist",21,0.005902457670946417
+aryl hydrocarbon receptor antagonist,20,0.005621388258044206
+pulmonary surfactant,20,0.005621388258044206
+"angiogenesis inhibitor, tumor necrosis factor production inhibitor",20,0.005621388258044206
+Hec1 inhibitor,19,0.0053403188451419965
+Ras GTPase inhibitor,19,0.0053403188451419965
+hepatocyte function enhancer,19,0.0053403188451419965
+orexin receptor antagonist,18,0.005059249432239786
+urokinase inhibitor,18,0.005059249432239786
+"casein kinase inhibitor, mTOR inhibitor, PI3K inhibitor",17,0.004778180019337576
+"TGF beta receptor inhibitor, p38 MAPK inhibitor",17,0.004778180019337576
+penicillin binding protein inhibitor,17,0.004778180019337576
+glucocorticoid receptor antagonist,17,0.004778180019337576
+PKA activator,16,0.004497110606435365
+"serotonin receptor agonist, serotonin receptor antagonist",15,0.004216041193533155
+nematocide,15,0.004216041193533155
+platelet aggregation inhibitor,14,0.003934971780630944
+"cannabinoid receptor agonist, glucose dependent insulinotropic receptor agonist, potassium channel blocker, PPAR receptor agonist",13,0.0036539023677287343
+"KIT inhibitor, PDGFR tyrosine kinase receptor inhibitor, src inhibitor",13,0.0036539023677287343
+"metalloproteinase inhibitor, EGFR inhibitor",12,0.0033728329548265244
+phosphorylase inhibitor,12,0.0033728329548265244
+cathepsin inhibitor,11,0.0030917635419243136
+"norepinephrine reputake inhibitor, tricyclic antidepressant",11,0.0030917635419243136
+"HIV integrase inhibitor, lipoxygenase inhibitor, nitric oxide production inhibitor, tumor necrosis factor production inhibitor",10,0.002810694129022103
+cysteine peptidase inhibitor,10,0.002810694129022103
+"adrenergic receptor antagonist, prolactin inhibitor",9,0.002529624716119893
+hydroxyphenylpyruvate dioxygenase inhibitor,9,0.002529624716119893
+gamma secretase inhibitor,9,0.002529624716119893
+androgen biosynthesis inhibitor,7,0.001967485890315472
+thiazide diuretic,7,0.001967485890315472
+"nitric oxide donor, potassium channel activator",7,0.001967485890315472
+"DNA synthesis inhibitor, thymidylate synthase inhibitor",6,0.0016864164774132622
+antineoplastic agent,6,0.0016864164774132622
+LXR agonist,6,0.0016864164774132622
+radical formation stimulant,6,0.0016864164774132622
+tyrosinase inhibitor,6,0.0016864164774132622
+muscle relaxant,5,0.0014053470645110516
+"glutamate inhibitor, macrophage migration inhibiting factor inhibitor",5,0.0014053470645110516
+insulin secretagogue,4,0.0011242776516088412
+dopamine-norepinephrine reuptake inhibitor,3,0.0008432082387066311
+norepinephrine reuptake inhibitor,3,0.0008432082387066311
+protein phosphatase inhibitor,3,0.0008432082387066311
+CFTR channel agonist,3,0.0008432082387066311
+antitussive,3,0.0008432082387066311
+histamine receptor agonist,3,0.0008432082387066311
+anticonvulsant,3,0.0008432082387066311
+thyroid hormone receptor agonist,2,0.0005621388258044206
+solute carrier family member inhibitor,2,0.0005621388258044206
+"potassium channel blocker, sodium channel blocker",2,0.0005621388258044206
+macrophage migration inhibiting factor inhibitor,2,0.0005621388258044206
+L-type calcium channel activator,2,0.0005621388258044206
+gamma hydroxybutyric acid ligand,2,0.0005621388258044206
+beta amyloid protein neurotoxicity inhibitor,2,0.0005621388258044206
+"interferon inducer, toll-like receptor agonist",2,0.0005621388258044206
+sodium/potassium/chloride transporter inhibitor,2,0.0005621388258044206
+neuraminidase inhibitor,2,0.0005621388258044206
+phosphate antagonist,2,0.0005621388258044206
+chloride channel blocker,1,0.0002810694129022103
+opioid receptor modulator,1,0.0002810694129022103
+calcitonin antagonist,1,0.0002810694129022103
+dihydropyrimidine dehydrogenase inhibitor,1,0.0002810694129022103
+"DNA synthesis inhibitor, microtubule inhibitor",1,0.0002810694129022103
+folate receptor ligand,1,0.0002810694129022103
+Wnt pathway inhibitor,1,0.0002810694129022103
+PABA antagonist,1,0.0002810694129022103
+contraceptive agent,1,0.0002810694129022103

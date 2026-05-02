@@ -1,2 +1,0 @@
-Dataset,Dataset Mode,Target,Split,Feature Set,Model,Backend,Rows Used,Input Dim,Epochs,Batch Size,Learning Rate,RMSE,MAE,R2,Train Seconds
-secondary_screen_auc,secondary_screen_auc,target_auc,random,,Neural Network,sklearn MLPRegressor,100000,3237,20,2048,0.001,0.19877794528127796,0.13965240120887756,0.49736493825912476,26.872777938842773

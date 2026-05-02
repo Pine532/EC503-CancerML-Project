@@ -2,6 +2,8 @@
 __pycache__/
 .venv/
 .matplotlib/
+.matplotlib_cache/
+.cache/
 
 data/expression/
 data/expression_cleaned/

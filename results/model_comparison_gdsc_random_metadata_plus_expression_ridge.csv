@@ -1,2 +1,0 @@
-Dataset,Dataset Mode,Target,Split,Feature Set,Model,RMSE,MAE,R2,Train Seconds,Predict Seconds
-gdsc,gdsc_metadata_plus_expression,LN_IC50,random,metadata_plus_expression,Ridge,1.467057781776928,1.100093292050531,0.7154193330892469,365.516499042511,0.9447300434112549

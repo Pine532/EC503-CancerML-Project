@@ -1,4 +1,0 @@
-Dataset,Dataset Mode,Target,Split,Feature Set,Model,Max Rows,Target Clipping,Clip Low Quantile,Clip High Quantile,Clip Low Value,Clip High Value,RMSE,MAE,R2,Train Seconds,Predict Seconds
-gdsc,gdsc_metadata_plus_expression,LN_IC50,random,metadata_plus_expression,Ridge,,none,,,,,1.467057781776928,1.100093292050531,0.7154193330892469,27.540563344955444,0.7876715660095215
-gdsc,gdsc_metadata_plus_expression,LN_IC50,random,metadata_plus_expression,Linear,,none,,,,,1.4671068279183592,1.1000168909038035,0.715400304776765,23.830141067504883,0.8590421676635742
-gdsc,gdsc_metadata_plus_expression,LN_IC50,random,metadata_plus_expression,Dummy Mean,,none,,,,,2.750336279682299,2.091301441192627,-0.0001901388168334961,13.33573055267334,0.6439125537872314

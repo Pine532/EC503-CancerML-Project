@@ -1,0 +1,331 @@
+Value,Count,Percent
+Unknown,257023,72.2413037123648
+non-small cell lung cancer (NSCLC),3773,1.0604748948800395
+multiple myeloma,3002,0.8437703775324354
+breast cancer,2665,0.7490499853843906
+colorectal cancer,2514,0.7066085040361568
+chronic myeloid leukemia (CML),1587,0.4460571582758078
+cosmetic,1580,0.4440896723854923
+coccidiosis,1521,0.4275065770242619
+acute lymphoblastic leukemia (ALL),1487,0.4179502169855868
+melanoma,1451,0.4078317181211072
+acute myeloid leukemia (AML),1390,0.3906864839340724
+peripheral T-cell lymphoma (PTCL),1286,0.3614552649922425
+"chronic myeloid leukemia (CML), acute lymphoblastic leukemia (ALL)",1234,0.34683965552132756
+contraceptive,1125,0.3162030895149866
+cutaneous T-cell lymphoma (CTCL),1108,0.31142490949564905
+malaria,1012,0.2844422458570368
+corticosteroid-responsive dermatoses,995,0.27966406583769926
+prostate cancer,967,0.2717941222764374
+"multiple myeloma, mantle cell lymphoma (MCL)",888,0.24958963865716277
+bladder cancer,873,0.2453735974636296
+hyperlipidemia,833,0.2341308209475412
+schizophrenia,820,0.23047691857981245
+"allergic rhinitis, urticaria",820,0.23047691857981245
+tapeworm,810,0.22766622445079035
+"acute myeloid leukemia (AML), acute lymphoblastic leukemia (ALL)",805,0.2262608773862793
+human immunodeficiency virus (HIV-1),760,0.21361275380567984
+periodontitis,746,0.20967778202504891
+fungal infection,745,0.2093967126121467
+organ rejection,731,0.20546174083151575
+atrial fibrillation (AF),714,0.2006835608121782
+abstinence from alcohol,702,0.19731072785735165
+"ovarian cancer, breast cancer, non-small cell lung cancer (NSCLC)",696,0.19562431137993838
+hypertension,680,0.191127200773503
+vitamin D deficiency,675,0.18972185370899197
+hypotension,672,0.18887864547028535
+renal cell carcinoma (RCC),669,0.1880354372315787
+"breast cancer, non-small cell lung cancer (NSCLC), prostate cancer, gastric adenocarcinoma, head and neck squamous cell carcinoma (HNSCC)",668,0.1877543678186765
+"tinea pedis, tinea cruris, tinea corporis",662,0.18606795134126325
+virus herpes simplex (HSV),613,0.17229555010905492
+peptic ulcer disease (PUD),600,0.1686416477413262
+mastitis,595,0.16723630067681514
+"rheumatoid arthritis, osteoarthritis",577,0.16217705124457535
+chronic lymphocytic leukemia (CLL),559,0.1571178018123356
+hyponatremia,547,0.15374496885750905
+gram-positive bacterial infections,520,0.14615609470914936
+skin infections,517,0.14531288647044274
+seizures,498,0.13997256762530075
+"hyperparathyroidism, chronic kidney disease (CKD), parathyroid carcinoma, hypercalcemia",484,0.1360375958446698
+genital warts,468,0.13154048523823444
+dandruff,465,0.1306972769995278
+"acute lymphoblastic leukemia (ALL), acute myeloid leukemia (AML), Wilm's tumor, breast cancer, ovarian cancer, Hodgkin's lymphoma, bladder cancer, multiple myeloma",464,0.1304162075866256
+thyroid cancer,459,0.12901086052211455
+"small cell lung cancer, cervical cancer",458,0.12872979110921234
+diabetes mellitus,452,0.12704337463179907
+"hypercholesterolemia, congenital heart defects",450,0.12648123580599463
+"ventricular arrhythmias, ventricular tachycardia (VT)",449,0.12620016639309242
+"seizures, panic disorders",447,0.12563802756728804
+scleroderma,447,0.12563802756728804
+"gingivitis, mouth inflammation",446,0.12535695815438583
+"congestive heart failure, atrial fibrillation (AF)",445,0.1250758887414836
+bile stimulation,445,0.1250758887414836
+gastrointestinal parasites,443,0.12451374991567918
+mesothelioma,439,0.12338947226407032
+medullary thyroid cancer (MTC),439,0.12338947226407032
+"pancreatic cancer, gastric adenocarcinoma",437,0.12282733343826592
+"hyperaldosteronism, congestive heart failure, hepatic cirrhosis, nephrotic syndrome, hypertension, hypokalemia",436,0.12254626402536371
+strongyles,432,0.12142198637375486
+"Hodgkin's lymphoma, true histiocytic lymphoma (THL), mycosis, small lymphocytic lymphoma (SLL), testicular carcinoma, Kaposi sarcoma",428,0.12029770872214601
+"organ rejection, lymphangioleiomyomatosis",426,0.1197355698963416
+"multiple sclerosis, prostate cancer, acute myeloid leukemia (AML)",421,0.11833022283183055
+contact dermatitis,418,0.11748701459312393
+"breast cancer, colorectal cancer",416,0.1169248757673195
+"acute lymphoblastic leukemia (ALL), acute lymphoblastic leukemia (ALL)",410,0.11523845928990623
+"gastrointestinal parasites, gastrointestinal roundworms",406,0.11411418163829738
+"breast cancer, non-small cell lung cancer (NSCLC), melanoma",405,0.11383311222539517
+"ulcerative colitis, diarrhea, headache, varicose veins, rheumatoid arthritis",404,0.11355204281249297
+"hypertension, cardiac arrythmia",401,0.11270883457378635
+pain relief,396,0.1113034875092753
+equine protozoal myeloencephalitis (EPM),393,0.11046027927056866
+"congestive heart failure, hypertension",392,0.11017920985766645
+"dysentry, colitis, pneumonia",388,0.10905493220605761
+cardiomyopathy,385,0.10821172396735099
+"gout, fever",385,0.10821172396735099
+"diarrhea, inflammatory bowel disease, giardiasis, dandruff",382,0.10736851572864434
+"ovarian cancer, breast cancer, non-small cell lung cancer (NSCLC), pancreatic cancer",382,0.10736851572864434
+"myelodysplastic diseases (MDS), anemia, chronic myeloid leukemia (CML)",381,0.10708744631574213
+asthma,380,0.10680637690283992
+general anaesthetic,379,0.10652530748993773
+anesthetic,378,0.1062442380770355
+multiple sclerosis,378,0.1062442380770355
+first-aid antiseptic,370,0.10399568277381782
+endogenous uveitis,367,0.10315247453511119
+eye inflammation,359,0.10090391923189351
+diagnostic agent,358,0.1006228498189913
+"gastrointestinal roundworms, lungworms, cattle grubs, mites, lice, horn flies",355,0.09977964158028466
+constipation,355,0.09977964158028466
+"hypertension, congestive heart failure",353,0.09921750275448024
+"asthma, emphysema, bronchitis",353,0.09921750275448024
+"multiple myeloma, mantle cell lymphoma (MCL), myelodysplastic diseases (MDS)",350,0.0983742945157736
+"hypercholesterolemia, coronary heart disease, myocardial infarction, stroke, hyperlipidemia",348,0.09781215568996919
+"chronic myeloid leukemia (CML), acute lymphoblastic leukemia (ALL), myelodysplastic diseases (MDS), aggressive systemic mastocytosis (ASM), hypereosinophilic syndrome (HES), chronic eosinophilic leukemia (CEL), dermatofibrosarcoma protuberans (DFSP), gastrointestinal stromal tumors (GIST)",348,0.09781215568996919
+onychomycosis,346,0.09725001686416476
+"cosmetic, skin infections, gingivitis",345,0.09696894745126257
+"non-small cell lung cancer (NSCLC), pancreatic cancer",343,0.09640680862545814
+"pelvic inflammatory disease, pneumonia",340,0.0955636003867515
+hairy cell leukemia,339,0.0952825309738493
+"cystic hydatid disease, parenchymal neurocysticercosis",336,0.09443932273514268
+"angina pectoris, hypertension, cardiac arrythmia",335,0.09415825332224047
+"congestive heart failure, cardiac arrythmia",335,0.09415825332224047
+"hypocalcemia, hypoparathyroidism, osteoporosis",335,0.09415825332224047
+"myocardial infarction, angina pectoris, pulmonary embolism (PE), colitis, vascular spasm",334,0.09387718390933825
+vulvovaginal candidiasis,329,0.0924718368448272
+primary peritoneal cancer (PPC),324,0.09106648978031615
+hepatitis C,323,0.09078542036741394
+anxiety,320,0.0899422121287073
+hepatitis B,318,0.08938007330290289
+"renal cell carcinoma (RCC), thyroid cancer, hepatocellular carcinoma (HCC)",317,0.08909900389000067
+"tuberculosis, meningitis",316,0.08881793447709847
+allergic rhinitis,311,0.08741258741258741
+"rheumatoid arthritis, hip dysplasia",310,0.0871315179996852
+"gestational choriocarcinoma, hydatidiform mole, acute lymphoblastic leukemia (ALL), psoriasis, rheumatoid arthritis",309,0.086850448586783
+"schizophrenia, bipolar disorder",308,0.08656937917388079
+"peptic ulcer disease (PUD), acute abdominal visceral spasm, ulcerative colitis, interstitial cystitis (IC), enterocolitis, irritable bowel syndrome, tremors, allergic rhinitis",307,0.08628830976097858
+psychosis,306,0.08600724034807636
+"myocardial infarction, hypertension",306,0.08600724034807636
+"pinworm, whipworm, hookworm, ascariasis",305,0.08572617093517415
+"nausea, vomiting, motion sickness",304,0.08544510152227194
+"testicular carcinoma, ovarian cancer, bladder cancer",299,0.08403975445776089
+"hyperglycemia, diabetes mellitus",295,0.08291547680615205
+bronchitis,295,0.08291547680615205
+"hypertension, urticaria, headache, seasonal affective disorder",293,0.08235333798034764
+irritable bowel syndrome,293,0.08235333798034764
+"colorectal cancer, gastrointestinal stromal tumors (GIST)",286,0.08038585209003216
+"myelodysplastic diseases (MDS), anemia, chronic myelomonocytic leukemia (CMMoL)",282,0.07926157443842331
+"colorectal cancer, breast cancer, pancreatic cancer, gastric adenocarcinoma",281,0.0789805050255211
+pneumonia,278,0.07813729678681447
+heartburn,271,0.076169810896499
+joint inflammation,269,0.07560767207069458
+infertility,268,0.07532660265779237
+"anemia, hepatitis C, thrombocytopenia",265,0.07448339441908575
+"skin infections, psoriasis",263,0.07392125559328132
+"cytomegalovirus retinitis, acquired immunodeficiency syndrome (AIDS), virus herpes simplex (HSV)",262,0.07364018618037911
+"cardiac arrest, anaphylactic shock, asthma",262,0.07364018618037911
+ovarian cancer,252,0.07082949205135701
+abdominal pain,251,0.0705484226384548
+reverse sedative,249,0.06998628381265037
+contrast agent,248,0.06970521439974817
+"contraceptive, endometriosis",247,0.06942414498684595
+coronary artery disease (CAD),244,0.06858093674813932
+"pneumonia, bronchitis, skin infections, tonsillitis, pharyngitis",238,0.06689452027072607
+"glaucoma, ocular hypertension",235,0.06605131203201943
+"joint pain, muscle pain",232,0.0652081037933128
+"respiratory tract infections, urinary tract infections",226,0.06352168731589954
+blackhead disease,226,0.06352168731589954
+protozoan infection,225,0.06324061790299731
+leishmaniasis,225,0.06324061790299731
+"chronic lymphocytic leukemia (CLL), mantle cell lymphoma (MCL), Waldenstrom's macroglobulinemia (WM)",223,0.06267847907719291
+"gastrointestinal stromal tumors (GIST), renal cell carcinoma (RCC), neuroendocrine tumors of pancreatic origin (PNET)",218,0.06127313201268186
+"urinary tract infections, gonorrhea, prostatitis",216,0.06071099318687743
+"breast cancer, neuroendocrine tumors of pancreatic origin (PNET), renal cell carcinoma (RCC), subependymal giant cell astrocytoma (SEGA), tuberous sclerosis complex (TSC), renal angiomyolipoma",215,0.06042992377397522
+Wolff-Parkinson-White Syndrome (WPW),209,0.05874350729656196
+urinary incontinence,207,0.05818136847075754
+"joint pain, nasal congestion, constipation, irritability, allergic rhinitis",202,0.056776021406246484
+insomnia,202,0.056776021406246484
+gram-negative bacterial infections,198,0.05565174375463765
+"chronic myeloid leukemia (CML), head and neck squamous cell carcinoma (HNSCC)",196,0.055089604928833226
+"chronic lymphocytic leukemia (CLL), non-Hodgkin lymphoma (NHL)",190,0.05340318845141996
+respiratory depression,190,0.05340318845141996
+"diabetes mellitus, diabetes mellitus",190,0.05340318845141996
+pulmonary arterial hypertension (PAH),187,0.05255998021271333
+"headache, chest congestion, allergic rhinitis",186,0.05227891079981112
+"melanoma, Hodgkin's lymphoma",182,0.05115463314820228
+hemorrhagic cystitis,180,0.05059249432239786
+"stroke, heart attack",175,0.0491871472578868
+"testicular carcinoma, small cell lung cancer",173,0.04862500843208238
+"renal cell carcinoma (RCC), soft tissue sarcoma (STS)",169,0.047500730780473545
+chest congestion,163,0.04581431430306028
+"chronic obstructive pulmonary disease (COPD), asthma",162,0.04553324489015807
+spinocerebellar ataxia,160,0.04497110606435365
+"anacidity diagnostic, gastric hypersecretion diagnostic, anacidity diagnostic, gastric hypersecretion diagnostic",159,0.044690036651451444
+"virus herpes simplex (HSV), varicella-zoster virus (VZV)",158,0.044408967238549237
+"transfusional hemosiderosis, thalassemia, iron overload",158,0.044408967238549237
+"coronary artery disease (CAD), asthma",154,0.04328468958694039
+depression,147,0.04131720369662492
+"renal homotransplantation, rheumatoid arthritis",145,0.0407550648708205
+"osteoarthritis, rheumatoid arthritis",143,0.04019292604501608
+"mouth inflammation, throat inflammation",142,0.039911856632113864
+diarrhea,140,0.03934971780630945
+"intra-abdominal infections, chronic obstructive pulmonary disease (COPD), cystic fibrosis",139,0.039068648393407235
+"conjunctivitis, rosacea, punctate keratitis, shingles, iritis, cyclitis",137,0.03850650956760281
+"Parkinson's Disease, dyskinesia",134,0.037663301328896184
+seborrheic dermatitis,132,0.03710116250309176
+basal cell carcinoma (BCC),128,0.03597688485148292
+hypercholesterolemia,126,0.035414746025678505
+"edema, congestive heart failure, hypertension",125,0.03513367661277629
+migraine headache,124,0.03485260719987408
+fescue toxicosis,124,0.03485260719987408
+skin depigmentation,124,0.03485260719987408
+skin ulcer,123,0.03457153778697187
+"Hodgkin's lymphoma, small lymphocytic lymphoma (SLL), breast cancer, neuroblastoma, Burkitt's lymphoma, multiple myeloma, chronic lymphocytic leukemia (CLL), acute myeloid leukemia (AML), acute lymphoblastic leukemia (ALL), chronic myeloid leukemia (CML), true histiocytic lymphoma (THL), retinoblastoma, ovarian cancer",122,0.03429046837406966
+"Hodgkin's lymphoma, chronic myeloid leukemia (CML), chronic lymphocytic leukemia (CLL), polycythemia vera, mycosis, bronchogenic carcinoma",118,0.03316619072246082
+actinic keratosis (AK),118,0.03316619072246082
+"headache, fever, toothache, muscle pain",116,0.0326040518966564
+amyotrophic lateral sclerosis (ALS),109,0.03063656600634093
+"anxiety, sedative, muscle relaxant",108,0.030355496593438714
+"intraocular pressure, glaucoma",108,0.030355496593438714
+bovine respiratory disease (BRD),107,0.030074427180536503
+leprosy,106,0.029793357767634296
+"ocular hypertension, glaucoma",101,0.028388010703123242
+"gastroesophageal reflux disease (GERD), duodenal ulcer disease, Zollinger-Ellison syndrome",101,0.028388010703123242
+pancreatic cancer,97,0.027263733051514402
+Crohn's disease,96,0.026982663638612195
+"hypertension, congestive heart failure, diabetic nephropathy, coronary artery disease (CAD)",96,0.026982663638612195
+"hypokalemia, hypertension, edema",96,0.026982663638612195
+"skin infections, first-aid antiseptic",95,0.02670159422570998
+"chronic lymphocytic leukemia (CLL), Hodgkin's lymphoma",93,0.02613945539990556
+"rheumatoid arthritis, psoriasis",92,0.02585838598700335
+"skin protectant, sunscreen lotion",90,0.02529624716119893
+"hypertension, angina pectoris",89,0.025015177748296723
+"chronic kidney disease (CKD), hyperparathyroidism",84,0.02360983068378567
+"glaucoma, senile dementia",83,0.023328761270883458
+"Raynaud's disease, arteriosclerosis, Buerger's disease",79,0.022204483619274618
+idiopathic pulmonary fibrosis (IPF),77,0.021642344793470197
+"coronary heart disease, myocardial infarction, hypercholesterolemia",76,0.021361275380567986
+"nausea, vomiting, nausea, vomiting",72,0.020236997728959143
+Raynaud's disease,72,0.020236997728959143
+bacterial vaginosis,71,0.019955928316056932
+"bronchospasm, bronchitis, emphysema",68,0.019112720077350303
+"edema, conjunctivitis, allergic rhinitis, asthma",67,0.018831650664448092
+endometriosis,67,0.018831650664448092
+"thrombocythemia, myeloproliferative neoplasms",66,0.01855058125154588
+"gastrointestinal roundworms, lungworms",64,0.01798844242574146
+acne vulgaris (AV),64,0.01798844242574146
+nasal congestion,64,0.01798844242574146
+"duodenal ulcer disease, peptic ulcer disease (PUD)",63,0.017707373012839252
+hypertriglyceridemia,62,0.01742630359993704
+"hypertension, angina pectoris, migraine headache",60,0.01686416477413262
+"organ rejection, rheumatoid arthritis, psoriasis",59,0.01658309536123041
+"allergic rhinitis, vasomotor rhinitis, conjunctivitis, urticaria, dermatographism",58,0.0163020259483282
+"endometriosis, angioedema",56,0.015739887122523777
+thiamine deficiency,56,0.015739887122523777
+"non-Hodgkin lymphoma (NHL), Hodgkin's lymphoma, multiple myeloma, glioblastoma, brainstem glioma, medulloblastoma, astrocytoma, ependymoma",53,0.014896678883817148
+"urinary tract infections, respiratory tract infections, bacterial septicemia, skin infections, intra-abdominal infections, gynecologic infections",49,0.013772401232208306
+navicular syndrome,47,0.013210262406403885
+hyperparathyroidism,46,0.012929192993501676
+"hypertension, edema",44,0.012367054167697254
+muscle relaxant,43,0.012085984754795045
+"chronic kidney disease (CKD), hyperthyroidism",43,0.012085984754795045
+anterior uveitis,41,0.011523845928990624
+"fever, respiratory tract infections, psittacosis, trachoma, conjunctivitis, urethritis, chancroid, tularemia, cholera, brucellosis",41,0.011523845928990624
+"vulvovaginal candidiasis, oropharyngeal candidiasis",40,0.011242776516088413
+"acquired immunodeficiency syndrome (AIDS), cytomegalovirus retinitis",39,0.010961707103186202
+status epilepticus,39,0.010961707103186202
+"deep vein thrombosis (DVT), pulmonary embolism (PE), atrial fibrillation (AF), myocardial infarction",35,0.009837429451577362
+"Wilson's disease, rheumatoid arthritis, cystinuria",33,0.00927529062577294
+"poison antidote, nerve gas poisoning",32,0.00899422121287073
+oropharyngeal candidiasis,30,0.00843208238706631
+"psychosis, bipolar disorder, schizophrenia",29,0.0081510129741641
+"xerosis cutis, ichthyosis vulgaris",29,0.0081510129741641
+head and neck squamous cell carcinoma (HNSCC),29,0.0081510129741641
+"anxiety, irritability, sleeplessness",27,0.0075888741483596785
+erectile dysfunction,27,0.0075888741483596785
+"menopause, osteoporosis, vaginal atrophy",24,0.006745665909653049
+"myelofibrosis, polycythemia vera",22,0.006183527083848627
+local anesthetic,22,0.006183527083848627
+"duodenal ulcer disease, peptic ulcer disease (PUD), gastroesophageal reflux disease (GERD), aggressive systemic mastocytosis (ASM), Zollinger-Ellison syndrome, endocrine adenoma",21,0.005902457670946417
+"psoriasis, chapped lips",20,0.005621388258044206
+respiratory distress syndrome (RDS),20,0.005621388258044206
+"skin infections, duodenal ulcer disease, gonorrhea, ear infections, throat infections, genitourinary tract infections, respiratory tract infections",17,0.004778180019337576
+"Cushing's syndrome, breast cancer",17,0.004778180019337576
+ulcerative colitis,16,0.004497110606435365
+"gonorrhea, enteritis, diarrhea, respiratory tract infections",16,0.004497110606435365
+acute promyelocytic leukemia (APL),16,0.004497110606435365
+"glioblastoma, astrocytoma",15,0.004216041193533155
+"depression, schizophrenia, bipolar disorder",15,0.004216041193533155
+flea control,15,0.004216041193533155
+"acute coronary syndrome (ACS), percutaneous coronary intervention (PCI)",14,0.003934971780630944
+"muscle pain, rheumatoid arthritis",14,0.003934971780630944
+mastocytoma,13,0.0036539023677287343
+stroke,13,0.0036539023677287343
+"pain relief, rheumatoid arthritis, headache, toothache, backache, muscle pain, common cold, fever",13,0.0036539023677287343
+carnitine deficiency,13,0.0036539023677287343
+gastrointestinal roundworms,12,0.0033728329548265244
+smoking cessation,11,0.0030917635419243136
+"depression, dysthymic disorder",11,0.0030917635419243136
+"hypercalcemia, thyroiditis, ankylosing spondylitis, bursitis, osteoarthritis, psoriatic arthritis, seborrheic dermatitis, mycosis, allergic rhinitis, psoriasis, anemia, multiple sclerosis, ulcerative colitis, enteritis",10,0.002810694129022103
+Lambert-Eaton myasthenic syndrome (LEMS),10,0.002810694129022103
+"pain relief, fever",9,0.002529624716119893
+"hypercholesterolemia, hypertriglyceridemia",9,0.002529624716119893
+tyrosinemia,9,0.002529624716119893
+epilepsy,8,0.0022485553032176825
+"acne vulgaris (AV), skin infections",8,0.0022485553032176825
+nausea,8,0.0022485553032176825
+congestive heart failure,7,0.001967485890315472
+angina pectoris,7,0.001967485890315472
+rosacea,6,0.0016864164774132622
+"neuroblastoma, congestive heart failure, pheochromocytoma",6,0.0016864164774132622
+"osteoporosis, breast cancer",6,0.0016864164774132622
+ascariasis,6,0.0016864164774132622
+premature labor,5,0.0014053470645110516
+"hypercalcemia, rheumatoid arthritis, psoriatic arthritis, osteoarthritis, allergic rhinitis, ulcerative colitis, anemia, multiple sclerosis, enteritis, lupus, dermatitis herpetiformis (DH), nephrotic syndrome, psoriasis",5,0.0014053470645110516
+spasms,5,0.0014053470645110516
+"hyperlipidemia, cholesterol",5,0.0014053470645110516
+"pneumonia, tonsillitis, pharyngitis, bronchitis, skin infections, otitis, sinusitis",4,0.0011242776516088412
+"acetaminophen overdose, hepatic injury",4,0.0011242776516088412
+"attention-deficit/hyperactivity disorder (ADHD), narcolepsy",3,0.0008432082387066311
+adrenal diagnostic agent,3,0.0008432082387066311
+cystic fibrosis,3,0.0008432082387066311
+headache,3,0.0008432082387066311
+glaucoma,3,0.0008432082387066311
+"duodenal ulcer disease, erosive esophagitis (EE), ulcerative esophagitis (UE), gastroesophageal reflux disease (GERD)",3,0.0008432082387066311
+"meningitis, fever, cholera",3,0.0008432082387066311
+"eczema, psoriasis, seborrheic dermatitis, itching",3,0.0008432082387066311
+"edema, congestive heart failure",2,0.0005621388258044206
+"rheumatoid arthritis, senile dementia",2,0.0005621388258044206
+"glaucoma, hypertension",2,0.0005621388258044206
+"onychomycosis, histoplasmosis, blastomycosis, aspergillosis",2,0.0005621388258044206
+influenza A virus infection,2,0.0005621388258044206
+chronic kidney disease (CKD),2,0.0005621388258044206
+"actinic keratosis (AK), genital warts, basal cell carcinoma (BCC)",2,0.0005621388258044206
+"hypertension, angina pectoris, myocardial infarction",2,0.0005621388258044206
+osteosarcoma,1,0.0002810694129022103
+lumbago,1,0.0002810694129022103
+"hypoestrogenism, menopause",1,0.0002810694129022103
+gastric adenocarcinoma,1,0.0002810694129022103
+thyroid function diagnostic,1,0.0002810694129022103
+schistosomiasis,1,0.0002810694129022103
+"enteritis, enteritis",1,0.0002810694129022103
+"cold sore, genitial herpes, shingles",1,0.0002810694129022103
+conjunctivitis,1,0.0002810694129022103

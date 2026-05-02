@@ -1,0 +1,101 @@
+Value,Count,Percent
+Unknown,449031,65.05885318867793
+oncology,48427,7.016453392679138
+infectious disease,29415,4.261857570067459
+hematologic malignancy,24714,3.580742749843522
+neurology/psychiatry,21737,3.149413496534298
+cardiology,14569,2.1108619050930755
+dermatology,11772,1.7056123513457124
+endocrinology,11579,1.6776491179266058
+gastroenterology,10219,1.480602499014767
+pulmonary,6711,0.9723381319980527
+ophthalmology,4477,0.6486600829913994
+rheumatology,3367,0.48783526902658975
+obstetrics/gynecology,3251,0.4710283515311681
+"hematologic malignancy, oncology",2511,0.3638118088879616
+"hematologic malignancy, hematology",2504,0.3627975983494448
+allergy,2163,0.3133910564016969
+dental,1401,0.2029869949231518
+urology,1306,0.1892227090432807
+"infectious disease, gastroenterology",1297,0.18791872406518764
+radiology,1285,0.18618007742773024
+"endocrinology, cardiology",1260,0.18255789693302735
+transplant,1136,0.16459188167930083
+"rheumatology, orthopedics",898,0.130108723369729
+"endocrinology, oncology",851,0.12329902403968751
+"endocrinology, nephrology, oncology",849,0.12300924960011127
+nephrology,826,0.11967684354498459
+"oncology, neurology/psychiatry, genetics, urology",822,0.11909729466583212
+"dermatology, infectious disease, oncology",819,0.11866263300646777
+"hematology, hematologic malignancy",817,0.11837285856689153
+metabolism,817,0.11837285856689153
+"ophthalmology, dermatology, infectious disease",789,0.11431601641282425
+"rheumatology, neurology/psychiatry",736,0.10663699376405407
+"oncology, hematologic malignancy",732,0.1060574448849016
+"nephrology, endocrinology",714,0.10344947492871548
+"gastroenterology, infectious disease, dermatology",471,0.06824188052020308
+"hematologic malignancy, infectious disease, oncology",468,0.06780721886083872
+"rheumatology, otolaryngology, gastroenterology, neurology/psychiatry, allergy",466,0.06751744442126249
+"neurology/psychiatry, pulmonary, allergy",462,0.06693789554211002
+"cardiology, allergy, neurology/psychiatry",462,0.06693789554211002
+"hematology, infectious disease",460,0.06664812110253379
+"infectious disease, pulmonary, otolaryngology",457,0.06621345944316943
+"endocrinology, cardiology, neurology/psychiatry",457,0.06621345944316943
+"infectious disease, urology",456,0.06606857222338132
+"endocrinology, obstetrics/gynecology",453,0.06563391056401698
+"gastroenterology, urology, neurology/psychiatry, allergy",451,0.06534413612444073
+"infectious disease, otolaryngology, pulmonary",451,0.06534413612444073
+hematology,447,0.06476458724528827
+"transplant, rheumatology",447,0.06476458724528827
+"endocrinology, cardiology, gastroenterology, rheumatology",444,0.06432992558592392
+"infectious disease, pulmonary",442,0.06404015114634767
+"ophthalmology, neurology/psychiatry",439,0.06360548948698333
+"neurology/psychiatry, cardiology",439,0.06360548948698333
+otolaryngology,437,0.0633157150474071
+"endocrinology, orthopedics",436,0.06317082782761897
+"transplant, pulmonary",435,0.06302594060783087
+"obstetrics/gynecology, cardiology",435,0.06302594060783087
+"infectious disease, dermatology",435,0.06302594060783087
+"allergy, otolaryngology, ophthalmology, dermatology",434,0.06288105338804274
+"cardiology, pulmonary",433,0.06273616616825463
+"dental, otolaryngology",431,0.0624463917286784
+"critical care, neurology/psychiatry",431,0.0624463917286784
+"gastroenterology, neurology/psychiatry, dermatology, rheumatology",430,0.06230150450889028
+"rheumatology, dermatology",427,0.06186684284952593
+"hematology, cardiology",425,0.0615770684099497
+"cardiology, nephrology",424,0.061432181190161576
+"neurology/psychiatry, gastroenterology, ophthalmology",422,0.06114240675058534
+"neurology/psychiatry, dermatology, hematology",421,0.060997519530797226
+"neurology/psychiatry, oncology, hematologic malignancy",421,0.060997519530797226
+"metabolism, rheumatology, nephrology",418,0.060562857871432875
+"cardiology, hematology, gastroenterology",418,0.060562857871432875
+"rheumatology, endocrinology",418,0.060562857871432875
+"infectious disease, cardiology",417,0.06041797065164476
+"dermatology, infectious disease, dental",412,0.05969353455270417
+"neurology/psychiatry, endocrinology, dental",412,0.05969353455270417
+"gastroenterology, neurology/psychiatry",412,0.05969353455270417
+"transplant, rheumatology, dermatology",410,0.05940376011312794
+"hematologic malignancy, hematology, infectious disease, oncology",410,0.05940376011312794
+"gastroenterology, hematologic malignancy, endocrinology",402,0.058244662354823
+orthopedics,400,0.05795488791524678
+"endocrinology, rheumatology, dermatology, infectious disease, allergy, hematology, neurology/psychiatry, gastroenterology",398,0.05766511347567054
+"cardiology, allergy, pulmonary",397,0.05752022625588242
+"endocrinology, orthopedics, obstetrics/gynecology",392,0.05679579015694184
+"cardiology, neurology/psychiatry",391,0.05665090293715372
+"oncology, urology",391,0.05665090293715372
+"ophthalmology, cardiology",386,0.05592646683821314
+"neurology/psychiatry, endocrinology",382,0.055346917959060674
+"endocrinology, infectious disease, ophthalmology, urology",371,0.05375315854139138
+"dermatology, infectious disease",353,0.051145188585205274
+"endocrinology, rheumatology, allergy, gastroenterology, hematology, neurology/psychiatry, dermatology",348,0.050420752486264694
+"dental, infectious disease",346,0.05013097804668846
+"oncology, hematologic malignancy, dermatology, rheumatology",338,0.04897188028838353
+"neurology/psychiatry, rheumatology",319,0.0462190231124093
+"orthopedics, oncology",305,0.04419060203537566
+"infectious disease, endocrinology",299,0.04332127871664696
+"rheumatology, cardiology",292,0.042307068178130146
+"neurology/psychiatry, rheumatology, dental, otolaryngology, endocrinology",292,0.042307068178130146
+"cardiology, endocrinology",285,0.04129285763961332
+"oncology, cardiology, endocrinology",279,0.04042353432088462
+"cardiology, ophthalmology, allergy, pulmonary",159,0.023037067946310594
+"dermatology, neurology/psychiatry",89,0.012894962561142408

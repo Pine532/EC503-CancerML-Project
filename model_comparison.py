@@ -57,8 +57,7 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help=(
             "Dataset mode to evaluate. Defaults to gdsc_metadata_only when omitted. "
-            "Use gdsc_metadata_only, gdsc_metadata_plus_expression, "
-            "secondary_screen_auc, or secondary_screen_ic50."
+            "Use a supported GDSC LN_IC50, GDSC AUC, or secondary-screen dataset mode."
         ),
     )
     parser.add_argument(
@@ -197,14 +196,12 @@ def main() -> None:
 
     model_data = load_model_dataframe(
         dataset=dataset_mode,
-        include_group_columns=args.split != "random",
     )
     model_df = cap_rows(model_data.model_df, args.max_rows)
     data_split = split_dataset(
         model_df,
         feature_columns=model_data.feature_columns,
         target_col=model_data.target_col,
-        group_split_columns=model_data.group_split_columns,
         split_strategy=args.split,
     )
     data_split, clipping_metadata = clip_split_targets(data_split, clip_quantiles)
